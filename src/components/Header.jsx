@@ -1,5 +1,5 @@
 import logo from '../img/logo.png';
-import {Button, Container, Col, Row, Stack} from 'react-bootstrap';
+import {Button, Stack} from 'react-bootstrap';
 
 export default function Header() {
     return (

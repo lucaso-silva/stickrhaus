@@ -1,3 +1,11 @@
 * {
     font-family: "Fredoka", sans-serif;
 }
+
+.banner {
+    background-image: url("img/Creative-Designs-for-Sticky.png"), url("img/space_theme.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: 15%, 70%;
+    background-size: max(800px), max(500px);
+    height: 60vh;
+}
