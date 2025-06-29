@@ -15,7 +15,7 @@ export default function ItemCart({sticker}) {
                         <div className="d-flex flex-column justify-content-between align-self-stretch align-items-center">
                             <i className="bi bi-trash3"></i>
                             {/*<Form.Control type="number" size="sm" defaultValue={sticker.stock}/>*/}
-                            <div className="bg-primary-subtle px-2 rounded-2">
+                            <div className="px-2 rounded-2 border">
                                 <span>-</span>
                                 <span className="mx-3">{sticker.stock}</span>
                                 <span>+</span>

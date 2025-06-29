@@ -1,10 +1,12 @@
 import ItemList from './ItemList.jsx';
 
-export default function AllItems(){
+export default function AllItems({stickers}){
+
+
     return(
         <>
             <h2>The Haus Collection</h2>
-            <ItemList/>
+            <ItemList stickers={stickers}/>
         </>
     )
 }

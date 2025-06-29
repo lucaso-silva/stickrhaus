@@ -1,10 +1,10 @@
 import ItemList from "./ItemList.jsx";
 
-export default function Offers() {
+export default function Offers({stickers}) {
     return (
         <>
             <h2>Special Offers</h2>
-            <ItemList />
+            <ItemList stickers={stickers}/>
         </>
     )
 }

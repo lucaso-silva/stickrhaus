@@ -5,7 +5,7 @@ export default function CartSummary(){
         <Card>
             <Card.Body>
                 <Card.Title>Order Summary</Card.Title>
-                <Card.Text>
+                {/*<Card.Text>*/}
                     <Container>
                         <Row>
                             <Col>Subtotal</Col>
@@ -20,17 +20,17 @@ export default function CartSummary(){
                             <Col>$ 9.99</Col>
                         </Row>
                     </Container>
-                </Card.Text>
+                {/*</Card.Text>*/}
                 <hr />
-                <Card.Text>
+                {/*<Card.Text>*/}
                     <Container>
                         <Row>
                             <Col>Total</Col>
                             <Col>$</Col>
                         </Row>
                     </Container>
-                </Card.Text>
-                <Button>Go to Checkout <i className="bi bi-arrow-right ms-2"></i></Button>
+                {/*</Card.Text>*/}
+                <Button className="mt-3">Go to Checkout <i className="bi bi-arrow-right ms-2"></i></Button>
             </Card.Body>
         </Card>
     )
