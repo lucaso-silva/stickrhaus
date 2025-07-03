@@ -34,6 +34,11 @@
     color: red;
 }
 
+/*Checkout Breadcrumbs*/
+.breadcrumb-item+.breadcrumb-item::before {
+    content: var(--bs-breadcrumb-divider, ">");
+}
+
 /*Footer*/
 .footer{
     height: 20vh;

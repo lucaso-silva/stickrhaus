@@ -1,5 +1,5 @@
 import Header from '../components/Header.jsx'
-import {Container, Row, Col, Card, ListGroup} from "react-bootstrap";
+import {Container, Row, Col, ListGroup} from "react-bootstrap";
 import ItemCart from "../components/ItemCart.jsx";
 import CartSummary from "../components/CartSummary.jsx";
 import Footer from "../components/Footer.jsx"

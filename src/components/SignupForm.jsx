@@ -20,13 +20,13 @@ export default function SignupForm(){
             <Form.Group controlId="password" className="mt-2">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
-                <Form.Text id="passwordHelper" muted>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</Form.Text>
+                <Form.Text id="passwordHelper" muted>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or <emoji className=""></emoji></Form.Text>
             </Form.Group>
             <Form.Group controlId="password2" className="mt-2">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Repeat Password" />
             </Form.Group>
-            <Button type="submit" variant="primary" className="mx-auto mt-3">Sign up</Button>
+            <Button type="submit" variant="primary" className="mt-3">Sign up</Button>
         </Form>
     )
 }

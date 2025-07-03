@@ -15,7 +15,6 @@ export default function Login(){
                     <LoginForm/>
                     <hr/>
                     <Card.Text>Not registered yet? <Link to="/signup">Sign up</Link></Card.Text>
-                    {/*<Card.Link href="/signup">Register</Card.Link>*/}
                 </Card.Body>
             </Card>
             <Footer />
