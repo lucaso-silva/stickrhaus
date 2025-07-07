@@ -10,7 +10,7 @@ export default function CheckoutAddress() {
             <h4 className="text-center">Checkout</h4>
             <Breadcrumb>
                 <Breadcrumb.Item href="/checkoutaddress">Shipping info</Breadcrumb.Item>
-                <Breadcrumb.Item href="/checkoutpayment" linkProps={{content: "var(--bs-breadcrumb-divider, '\-')"}}>Payment info</Breadcrumb.Item>
+                <Breadcrumb.Item href="/checkoutpayment">Payment info</Breadcrumb.Item>
                 <Breadcrumb.Item href="/checkoutsummary">Confirm order</Breadcrumb.Item>
             </Breadcrumb>
             <AddressInfo />
