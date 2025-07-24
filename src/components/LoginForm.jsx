@@ -1,7 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLoggedUserDispatch } from "./contexts/LoggedUserContext.jsx";
+import { useLoggedUserDispatch } from "../contexts/LoggedUserContext.jsx";
 
 export default function LoginForm() {
     const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ export default function LoginForm() {
             body: JSON.stringify({ email, password })
         });
         const data = await res.json();
-        console.log("login data: ", data);
+        // console.log("login data: ", data);
         if(res.ok){
             dispatch({
                 type: 'login',
