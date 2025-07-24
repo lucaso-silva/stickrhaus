@@ -4,7 +4,7 @@ import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import { BrowserRouter } from "react-router-dom";
-import { LoggedUserProvider } from "./components/contexts/LoggedUserContext.jsx";
+import { LoggedUserProvider } from "./contexts/LoggedUserContext.jsx";
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>

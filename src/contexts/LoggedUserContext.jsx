@@ -21,8 +21,6 @@ export function LoggedUserProvider({children}){
 function LoggedUserReducer(user, action){
     switch (action.type){
         case 'login': {
-            console.log("login reducer");
-            console.log("logged user reducer: ", action.loggedUser);
             return action.loggedUser;
         }
         case 'logout': {
