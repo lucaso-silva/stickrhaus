@@ -3,12 +3,11 @@ import {Container, Row, Col, ListGroup} from "react-bootstrap";
 import ItemCart from "../components/ItemCart.jsx";
 import CartSummary from "../components/CartSummary.jsx";
 import Footer from "../components/Footer.jsx"
-import {useContext} from "react";
-import { CartContext } from "../CartContext.jsx";
+import { useCart } from "../contexts/CartContext.jsx";
 
 export default function Cart(){
-    const cart = useContext(CartContext);
-    console.log(cart);
+    const cart = useCart();
+    console.log("cart: ", cart);
 
     return (
         <>
@@ -22,7 +21,9 @@ export default function Cart(){
                 <Row>
                     <Col>
                         <ListGroup>
-                            {cart.map((item)=> <ItemCart sticker={item}/>)}
+                            {cart.map((item)=> <ItemCart key={item.id}
+                                                         sticker={item}
+                            />)}
                         </ListGroup>
                     </Col>
                     <Col>

@@ -1,21 +1,28 @@
-
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {CartContext} from "../contexts/CartContext.jsx";
+import {useCart, useCartDispatch} from "../contexts/CartContext.jsx";
 import {useLoggedUser, useLoggedUserDispatch} from "../contexts/LoggedUserContext.jsx";
 import { Link } from "react-router-dom";
 import NavLink from "./NavLink.jsx";
 
 export default function Navbar() {
+    const [ numItems, setNumItems ] = useState(0);
     let navigate = useNavigate();
     let goToCart = ()=> { navigate("/cart")};
     let goToLogin = () => { navigate("/login")};
 
-    const cart = useContext(CartContext);
-    const dispatch = useLoggedUserDispatch();
+    const cart = useCart();
+    const cartDispatch = useCartDispatch();
+    const userDispatch = useLoggedUserDispatch();
     const user = useLoggedUser();
-    // console.log("nav user: ", user);
+
+    useEffect(()=>{
+        setNumItems(cart.reduce((acc,curr)=>{
+            return acc += curr.qty;
+        },0));
+    },[cart])
+
     const handleLogout = async () =>{
         const res = await fetch('http://localhost:4000/api/auth/logout', {
             method: 'POST',
@@ -23,34 +30,19 @@ export default function Navbar() {
         });
         const data = await res.json();
         if(res.ok){
-            dispatch({
+            userDispatch({
                 type: 'logout',
                 loggedUser: null,
             })
         }else{
             alert(data.error);
         }
+        cartDispatch({
+            type: 'clear',
+            cart: []
+        })
         navigate('/');
     }
-
-    // let loggedOpt = ""
-    // if(user){
-    //     if(user.role === 'admin'){
-    //         loggedOpt = (
-    //             <div className="ms-auto">
-    //                 <Link to='/adminpanel'>Admin Panel</Link>
-    //                 <Button variant="outline-warning" onClick={handleLogout}>Logout</Button>
-    //             </div>
-    //         )
-    //     }else {
-    //         loggedOpt = (
-    //             <div className="ms-auto">
-    //                 <Link to='/checkoutaddress'>Checkout</Link>
-    //                 <Button variant="outline-warning" onClick={handleLogout}>Logout</Button>
-    //             </div>
-    //         )
-    //     }
-    // }
 
     return (
         <>
@@ -65,9 +57,9 @@ export default function Navbar() {
                 </div>
             )
             }
-            <div className="me-5">
+            <div className="me-5 cart">
                 <span onClick={goToCart}><i className="bi bi-cart2 fs-3 ms-3"></i></span>
-                <span className="cart-count">{cart.length}</span>
+                {numItems>0 ? <span className="cart-count">{numItems}</span>:""}
             </div>
         </>
     )

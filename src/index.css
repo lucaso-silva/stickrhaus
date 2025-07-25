@@ -7,6 +7,20 @@
     cursor: pointer;
 }
 
+.cart{
+    position:relative;
+}
+
+.cart-count{
+    background-color: orange;
+    padding: .01rem .35rem;
+    border-radius: 50%;
+    font-size: .7rem;
+    position: absolute;
+    top: 1px;
+    left: 35px;
+}
+
 /* Navbar */
 .navLink{
     text-decoration: none;

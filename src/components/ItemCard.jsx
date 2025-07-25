@@ -1,13 +1,12 @@
 import { Card } from 'react-bootstrap';
-import { CartDispatchContext } from "../CartContext.jsx";
-import { useContext } from "react";
+import { useCartDispatch } from "../contexts/CartContext.jsx";
 
 export default function ItemCard({sticker}) {
-    const dispatch = useContext(CartDispatchContext);
+    const dispatch = useCartDispatch();
 
     return(
         <Card style={{ width:"10.75vw"}}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img variant="top" src="https://placehold.co/75x50" />
             <Card.Body>
                 <Card.Title> {sticker.description}</Card.Title>
                 <Card.Text>Size: {sticker.size}</Card.Text>
@@ -22,10 +21,9 @@ export default function ItemCard({sticker}) {
                         <button className="cardBtn addCart" onClick={()=>{
                             dispatch({
                                 type:'add',
-                                id:sticker.id,
+                                id:sticker._id,
                                 description:sticker.description,
                                 price:sticker.price,
-                                qty: 1
                             })
                         }}><i className="bi bi-bag-plus"></i></button>
                         <button className="cardBtn addFav"><i className="bi bi-heart"></i></button>

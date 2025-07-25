@@ -1,11 +1,11 @@
 import {Card, Container, Row, Col, Button} from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import { useContext } from "react";
-import { CartContext } from "../CartContext.jsx";
+import { useCart } from "../contexts/CartContext.jsx";
 
 export default function CartSummary(){
     let navigate = useNavigate();
-    const cart = useContext(CartContext);
+    const cart = useCart();
     const subtotal = cart.reduce((acc,item)=>{
         return acc+item.price;
     },0);
@@ -20,7 +20,7 @@ export default function CartSummary(){
                     <Container>
                         <Row>
                             <Col>Subtotal</Col>
-                            <Col>$ {subtotal}</Col>
+                            <Col>$ {subtotal.toFixed(2)}</Col>
                         </Row>
                         <Row>
                             <Col>Discount</Col>
@@ -37,7 +37,7 @@ export default function CartSummary(){
                     <Container>
                         <Row>
                             <Col>Total</Col>
-                            <Col>$ {subtotal + deliveryFee}</Col>
+                            <Col>$ {(subtotal + deliveryFee).toFixed(2)}</Col>
                         </Row>
                     </Container>
                 {/*</Card.Text>*/}
