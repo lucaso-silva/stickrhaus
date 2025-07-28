@@ -1,14 +1,17 @@
 import {Card, Container, Row, Col, Button} from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
-import { useContext } from "react";
 import { useCart } from "../contexts/CartContext.jsx";
 
 export default function CartSummary(){
     let navigate = useNavigate();
     const cart = useCart();
     const subtotal = cart.reduce((acc,item)=>{
-        return acc+item.price;
+        return acc+item.price*item.qty;
     },0);
+
+    const totalDiscount = cart.reduce((acc,item)=>{
+        return acc+(item.price*item.discountPerCent)*item.qty;
+    },0)
     const deliveryFee = 5.99;
 
     let goCheckout = () => navigate("/checkoutaddress");
@@ -22,9 +25,9 @@ export default function CartSummary(){
                             <Col>Subtotal</Col>
                             <Col>$ {subtotal.toFixed(2)}</Col>
                         </Row>
-                        <Row>
+                        <Row className="text-danger">
                             <Col>Discount</Col>
-                            <Col>-$</Col>
+                            <Col>-$ {totalDiscount.toFixed(2)}</Col>
                         </Row>
                         <Row>
                             <Col>Delivery Fee</Col>
@@ -37,7 +40,7 @@ export default function CartSummary(){
                     <Container>
                         <Row>
                             <Col>Total</Col>
-                            <Col>$ {(subtotal + deliveryFee).toFixed(2)}</Col>
+                            <Col>$ {(subtotal + deliveryFee - totalDiscount).toFixed(2)}</Col>
                         </Row>
                     </Container>
                 {/*</Card.Text>*/}

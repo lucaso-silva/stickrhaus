@@ -7,13 +7,12 @@ import Signup from "./pages/Signup.jsx";
 import CheckoutAddress from './pages/CheckoutAddress.jsx'
 import CheckoutPayment from './pages/CheckoutPayment.jsx'
 import CheckoutSummary from "./pages/CheckoutSummary.jsx";
-import {useLoggedUserDispatch, LoggedUserProvider} from "./contexts/LoggedUserContext.jsx";
+import {useLoggedUserDispatch} from "./contexts/LoggedUserContext.jsx";
 import AdminPanel from "./pages/AdminPanel.jsx";
-import {useCart} from "./contexts/CartContext.jsx";
+import Wishlist from "./pages/Wishlist.jsx";
 
 function App() {
     const dispatch = useLoggedUserDispatch();
-    const cart = useCart();
 
     useEffect(() => {
         fetch('http://localhost:4000/api/auth/me', {
@@ -28,14 +27,6 @@ function App() {
             });
     }, []);
 
-    // useEffect(()=>{
-    //     const data = localStorage.getItem('cart');
-    //
-    //     if(data){
-    //
-    //     }
-    // },[])
-
   return (
       <Routes>
           <Route path="/" element={<Home />} />
@@ -43,9 +34,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkoutaddress" element={<CheckoutAddress />} />
-          <Route path="/checkoutpayment" element={<CheckoutPayment />} />
-          <Route path="/checkoutsummary" element={<CheckoutSummary />} />
+          <Route path="/checkout-payment" element={<CheckoutPayment />} />
+          <Route path="/checkout-summary" element={<CheckoutSummary />} />
           <Route path="/adminpanel" element={<AdminPanel />} />
+          <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
   );
 }

@@ -5,16 +5,18 @@ import {useCartDispatch} from "../contexts/CartContext.jsx";
 export default function ItemCart({sticker}) {
     const dispatch = useCartDispatch();
     const [ stickerQty, setStickerQty ] = useState(sticker.qty);
-
     return(
         <>
             <ListGroup.Item className="d-flex justify-content-between">
                 <Stack direction="horizontal" gap={5}>
                     <div><img src="https://placehold.co/75x75" alt="item"/></div>
                     <div>
-                        <h4>{sticker.description}</h4>
-                        <p>{sticker.size}</p>
-                        <p>Price: {sticker.price}</p>
+                        <h5>{sticker.description}</h5>
+                        {sticker.discountPerCent>0 ? (
+                            <p>Price: $<span className="text-decoration-line-through text-danger">{sticker.price}</span> {(sticker.price-sticker.price*sticker.discountPerCent).toFixed(2)}</p>
+                        ) : (
+                            <p>Price: ${sticker.price}</p>
+                        )}
                     </div>
                     {/*<div className="align-self-stretch">*/}
                         <div className="d-flex flex-column justify-content-between align-self-stretch align-items-center">
@@ -22,7 +24,6 @@ export default function ItemCart({sticker}) {
                                 dispatch({
                                     type:'remove',
                                     id:sticker.id,
-                                    qty:sticker.qty,
                                 })
                             }}></i>
                             <div className="px-2 rounded-2 border">
@@ -49,6 +50,7 @@ export default function ItemCart({sticker}) {
                                         id:sticker.id,
                                         description:sticker.description,
                                         price:sticker.price,
+                                        discountPerCent: sticker.discountPerCent,
                                     })
                                 }}>+</span>
                             </div>

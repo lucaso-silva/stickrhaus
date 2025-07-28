@@ -24,6 +24,7 @@ export default function ItemCard({sticker}) {
                                 id:sticker._id,
                                 description:sticker.description,
                                 price:sticker.price,
+                                discountPerCent: sticker.discountPerCent/100,
                             })
                         }}><i className="bi bi-bag-plus"></i></button>
                         <button className="cardBtn addFav"><i className="bi bi-heart"></i></button>

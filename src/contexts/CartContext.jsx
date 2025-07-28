@@ -40,7 +40,7 @@ function cartReducer(cart, action){
                 })
                 localStorage.setItem('cart', JSON.stringify(cart));
             } else {
-                const newItem = {id: action.id, description: action.description, price: action.price, qty: 1}
+                const newItem = {id: action.id, description: action.description, price: action.price, qty: 1, discountPerCent: action.discountPerCent}
                 localStorage.setItem('cart', JSON.stringify([...cart, newItem]));
                 return [...cart, newItem];
             }
