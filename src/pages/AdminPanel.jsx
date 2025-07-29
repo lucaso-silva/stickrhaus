@@ -2,12 +2,14 @@ import Header from '../components/Header.jsx';
 import Footer from '../components/Footer';
 import FormNewItem from '../components/FormNewItem';
 import { Button, Container, Row, Col} from "react-bootstrap";
-import { useState } from "react";
+import { useState} from "react";
 import ListToEdit from '../components/ListToEdit';
+import admin_settings from '../img/admin_settings.svg'
 
 export default function AdminPanel(){
     const [addNewItem, setAddNewItem] = useState(false);
     const [editItem, setEditItem] = useState(false);
+
     return(
         <Container fluid>
             <Header />
@@ -37,7 +39,9 @@ export default function AdminPanel(){
                     ) : ""
                     }
                     {!addNewItem&&!editItem ? (
-                        <div className="blank-space"></div>
+                        <div className="text-center">
+                            <img src={admin_settings} alt="Admin Settings" className="pages_img" />
+                        </div>
                     ):""}
                 </Col>
             </Row>

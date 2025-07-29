@@ -14,7 +14,6 @@ export default function CartSummary(){
     },0)
     const deliveryFee = 5.99;
 
-    let goCheckout = () => navigate("/checkoutaddress");
     return (
         <Card>
             <Card.Body>
@@ -44,7 +43,7 @@ export default function CartSummary(){
                         </Row>
                     </Container>
                 {/*</Card.Text>*/}
-                <Button className="mt-3" onClick={goCheckout}>Go to Checkout <i className="bi bi-arrow-right ms-2"></i></Button>
+                <Button className="mt-3" onClick={()=>navigate('/checkout-payment')}>Go to Checkout <i className="bi bi-arrow-right ms-2"></i></Button>
             </Card.Body>
         </Card>
     )

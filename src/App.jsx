@@ -6,10 +6,10 @@ import Login from './pages/Login.jsx'
 import Signup from "./pages/Signup.jsx";
 import CheckoutAddress from './pages/CheckoutAddress.jsx'
 import CheckoutPayment from './pages/CheckoutPayment.jsx'
-import CheckoutSummary from "./pages/CheckoutSummary.jsx";
 import {useLoggedUserDispatch} from "./contexts/LoggedUserContext.jsx";
 import AdminPanel from "./pages/AdminPanel.jsx";
 import Wishlist from "./pages/Wishlist.jsx";
+import Success from "./pages/Success.jsx"
 
 function App() {
     const dispatch = useLoggedUserDispatch();
@@ -35,9 +35,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkoutaddress" element={<CheckoutAddress />} />
           <Route path="/checkout-payment" element={<CheckoutPayment />} />
-          <Route path="/checkout-summary" element={<CheckoutSummary />} />
           <Route path="/adminpanel" element={<AdminPanel />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/success-order" element={<Success />} />
       </Routes>
   );
 }

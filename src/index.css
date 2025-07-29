@@ -27,6 +27,7 @@
     font-family: "Fredoka", sans-serif;
     font-weight: 500;
     font-size: 1.2rem;
+    margin: 0 .75em;
 }
 
 /*Banner*/
@@ -78,15 +79,33 @@
     content: var(--bs-breadcrumb-divider, ">");
 }
 
+
 /*Admin Panel*/
 .blank-space{
     height: 60vh;
 }
 
-/*Footer*/
-.footer{
-    height: 20vh;
+/* Empty cart */
+.pages_img{
+    width: 350px;
 }
+
+/*Footer*/
+
+.links-footer{
+    display: contents;
+    list-style-type: none;
+}
+
+.links-footer li{
+    margin-top: .5em;
+}
+
+.links-footer a {
+    text-decoration: none;
+}
+
+
 
 @media screen and (min-width: 768px){
     .banner{

@@ -44,7 +44,6 @@ function cartReducer(cart, action){
                 localStorage.setItem('cart', JSON.stringify([...cart, newItem]));
                 return [...cart, newItem];
             }
-            console.log("hiii");
             return cart;
         }
         case 'remove':{

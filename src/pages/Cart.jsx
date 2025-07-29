@@ -8,8 +8,6 @@ import EmptyCart from "../components/EmptyCart.jsx";
 
 export default function Cart(){
     const cart = useCart();
-    console.log("cart: ", cart);
-    console.log(cart.length);
 
     return (
         <>
