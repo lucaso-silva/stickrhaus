@@ -13,7 +13,7 @@ const stripePromise = loadStripe("pk_test_51RgK2N4PJYdvk5e9lYKmrvvOXnHCfDe3aWPBO
 
 export default function CheckoutPayment() {
     const cart = useCart();
-    console.log("payment: ",cart);
+
     const fetchClientSecret = useCallback(()=>{
         return fetch("http://localhost:4000/api/checkout/create-checkout-session",{
             method: "POST",
@@ -30,11 +30,6 @@ export default function CheckoutPayment() {
     return(
         <Container fluid>
             <Header />
-            {/*<Breadcrumb className="text-center">*/}
-            {/*    <Breadcrumb.Item href="/checkoutaddress">Shipping info</Breadcrumb.Item>*/}
-            {/*    <Breadcrumb.Item href="/checkoutpayment" linkProps={{content: "var(--bs-breadcrumb-divider, '\-')"}}>Payment info</Breadcrumb.Item>*/}
-            {/*    <Breadcrumb.Item href="/checkoutsummary">Confirm order</Breadcrumb.Item>*/}
-            {/*</Breadcrumb>*/}
             {cart.length>0 ? (
                 <>
                     <h4 className="text-center">Checkout</h4>

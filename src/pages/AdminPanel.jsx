@@ -10,7 +10,6 @@ import {useNavigate} from "react-router-dom";
 export default function AdminPanel(){
     const [addNewItem, setAddNewItem] = useState(false);
     const [editItem, setEditItem] = useState(false);
-    // const [ admin, setAdmin] = useState(null);
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -19,13 +18,11 @@ export default function AdminPanel(){
         })
             .then(res => res.ok ? res.json() : null)
             .then(data => {
-                console.log("front data: ",data);
                 if(!data || data.role !== 'admin'){
                     navigate('/');
                 }
-                console.log("Admin panel");
             })
-    },[ ])
+    },[])
 
     return(
         <Container fluid>

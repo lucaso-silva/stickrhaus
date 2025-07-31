@@ -9,7 +9,6 @@ export default function CartSummary(){
     const [ subtotal, setSubtotal ] = useState(0)
     const [ totalDiscount, setTotalDiscount ] = useState(0);
 
-    console.log("cart: ", cart);
     useEffect(() => {
         setSubtotal(cart.reduce((acc,item)=>{
             return acc+item.price*item.qty;

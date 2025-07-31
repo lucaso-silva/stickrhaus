@@ -2,8 +2,6 @@ import { Stack, ListGroup } from 'react-bootstrap';
 import ItemModal from "././ItemModal.jsx";
 
 export default function ItemEditRow({ sticker, delItem, toShow  }) {
-    // console.log(sticker);
-
     return(
         <>
             <Stack direction="horizontal" gap={3}>

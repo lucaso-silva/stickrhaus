@@ -1,17 +1,10 @@
 import { Card, Form, Button } from 'react-bootstrap';
-// import { useState } from 'react';
 import {useNavigate} from "react-router-dom";
 import * as formik from "formik";
 import * as yup from "yup";
 import {Formik} from "formik";
 
 export default function FormNewItem() {
-    // const [ description, setDescription ] = useState('');
-    // const [ size, setSize ] = useState('');
-    // const [ price, setPrice ] = useState(0.00);
-    // const [ category, setCategory ] = useState('');
-    // const [ stock, setStock ] = useState(0);
-    // const [ discountPerCent, setDiscountPerCent ] = useState(0);
     const navigate = useNavigate();
     const { Formik } = formik;
 
@@ -31,30 +24,7 @@ export default function FormNewItem() {
         discount: yup.number().min(0,"Minimum value is 0")
     })
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const res = await fetch('http://localhost:4000/api/stickers', {
-    //         method: 'POST',
-    //         headers: { 'Content-type': 'application/json' },
-    //         body: JSON.stringify({ description, size, price: Number(price), category, stock: Number(stock), discountPerCent: Number(discountPerCent) })
-    //     })
-    //     const data = await res.json();
-    //     if(res.ok){
-    //         alert("new item created ", data.description);
-    //         setDescription("");
-    //         setSize("");
-    //         setPrice(0.00);
-    //         setCategory("");
-    //         setStock(0);
-    //         setDiscountPerCent(0);
-    //         navigate('/');
-    //     }else{
-    //         alert(data.error);
-    //     }
-    // }
-
     const handleNewItem = async (values) => {
-        // e.preventDefault();
         const res = await fetch('http://localhost:4000/api/stickers', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },

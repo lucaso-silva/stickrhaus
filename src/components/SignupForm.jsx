@@ -4,10 +4,6 @@ import * as formik from "formik";
 import * as yup from "yup";
 
 export default function SignupForm(){
-    // const [ firstName, setFirstName ] = useState("");
-    // const [ lastName, setLastName ] = useState("");
-    // const [ email, setEmail ] = useState("");
-    // const [ password, setPassword ] = useState("");
     const navigate = useNavigate();
     const { Formik } = formik;
 
@@ -31,27 +27,8 @@ export default function SignupForm(){
             .required("Is necessary to confirm the password")
             .oneOf([yup.ref('password')], 'Password must match'),
     });
-    //
-    // const handleSingin = async (e) =>{
-    //     e.preventDefault();
-    //     const res = await fetch('http://localhost:4000/api/auth/signup', {
-    //         method: 'POST',
-    //         headers: { 'Content-type': 'application/json' },
-    //         body: JSON.stringify({ firstName, lastName, email, password, role:"user" }),
-    //     });
-    //     const data = await res.json();
-    //     console.log(data);
-    //     if(res.ok){
-    //         // onAuth(data.token);
-    //         // setMessage('signup successfully');
-    //         navigate('/login');
-    //     }else{
-    //         alert(data.error);
-    //     }
-    // }
 
     const handleSingIn = async (values) => {
-        // e.preventDefault();
         console.log("values: ", values);
             const res = await fetch('http://localhost:4000/api/auth/signup', {
                 method: 'POST',

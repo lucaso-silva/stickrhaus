@@ -14,32 +14,7 @@ export default function LoginForm() {
         password: yup.string().required("Password is required"),
     });
 
-    // const handleSubmit = async (e) =>{
-    //     e.preventDefault();
-    //     const res = await fetch('http://localhost:4000/api/auth/login', {
-    //         method: 'POST',
-    //         credentials: 'include',
-    //         headers: { 'Content-type': 'application/json' },
-    //         body: JSON.stringify({ email, password })
-    //     });
-    //     const data = await res.json();
-    //     // console.log("login data: ", data);
-    //     if(res.ok){
-    //         dispatch({
-    //             type: 'login',
-    //             loggedUser: data.user,
-    //         })
-    //         // onAuth(data.user);
-    //         // setMessage('Login successful!');
-    //         alert('logged in');
-    //         navigate('/');
-    //     }else{
-    //         alert(data.error);
-    //     }
-    // }
-
     const handleLogin = async (values) =>{
-        // e.preventDefault();
         const res = await fetch('http://localhost:4000/api/auth/login', {
             method: 'POST',
             credentials: 'include',
@@ -47,7 +22,6 @@ export default function LoginForm() {
             body: JSON.stringify({ email: values.email, password: values.password })
         });
         const data = await res.json();
-        // console.log("login data: ", data);
         if(res.ok){
             dispatch({
                 type: 'login',
