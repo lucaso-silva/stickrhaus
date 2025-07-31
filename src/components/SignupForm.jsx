@@ -23,7 +23,10 @@ export default function SignupForm(){
         email: yup.string().email('Invalid email address').required('Email address required'),
         password: yup.string()
             .required("Password required")
-            .min(8, "Password must be at least 8 characters long"),
+            .trim()
+            .min(8, "Password must be at least 8 characters long")
+            .max(20, "Too long!")
+            .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/, 'Password must be at least 8 characters long, contain at least 1 uppercase letter, 1 lowercase letter, and 1 number, it can contain special characters'),
         password2: yup.string()
             .required("Is necessary to confirm the password")
             .oneOf([yup.ref('password')], 'Password must match'),
@@ -125,7 +128,7 @@ export default function SignupForm(){
                                       onChange={handleChange}
                                       isInvalid={!!errors.password}
                         />
-                        <Form.Text id="passwordHelper" muted>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji</Form.Text>
+                        {/*<Form.Text id="passwordHelper" muted>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji</Form.Text>*/}
                         <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group controlId="password2" className="mt-2">
