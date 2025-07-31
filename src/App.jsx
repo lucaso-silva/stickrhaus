@@ -35,7 +35,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/create-checkout-session" element={user ? <CheckoutPayment /> : <Login />} />
-          <Route path="/admin" element={<AdminPanel /> } />
+          <Route path="/admin" element={!user ? <Login /> : <AdminPanel /> } />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/success-order" element={<Success />} />
       </Routes>
