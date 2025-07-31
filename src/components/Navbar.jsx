@@ -1,9 +1,8 @@
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {useCart, useCartDispatch} from "../contexts/CartContext.jsx";
 import {useLoggedUser, useLoggedUserDispatch} from "../contexts/LoggedUserContext.jsx";
-import { Link } from "react-router-dom";
 import NavLink from "./NavLink.jsx";
 
 export default function Navbar() {

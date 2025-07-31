@@ -1,11 +1,25 @@
 import ItemEditRow from "./ItemEditRow.jsx";
 import {useEffect, useState} from "react";
 import ItemModal from "././ItemModal.jsx";
+import {Form, Stack} from 'react-bootstrap';
 
 export default function ListToEdit(){
     const [items, setItems] = useState([]);
     const [ showModal, setShowModal ] = useState(false);
     const [ itemToEdit, setItemToEdit ] = useState(null);
+
+    const filterStickers = (e)=>{
+        if(e.target.value.length > 0){
+            const filteredStickers = items.filter((item)=>{
+                if(item.description.toLowerCase().includes(e.target.value.toLowerCase()) || item.category.toLowerCase().includes(e.target.value.toLowerCase())){
+                    return item;
+                }
+            })
+            setItems(filteredStickers);
+        } else {
+            displayItems();
+        }
+    }
 
     useEffect(() => {
         displayItems();
@@ -20,39 +34,16 @@ export default function ListToEdit(){
         await fetch(`http://localhost:4000/api/stickers/${id}`)
             .then(res => res.json())
             .then(data=>{
-                // console.log("item to edit (fetch): ", data);
-                // console.log("item to edit (state): ", itemToEdit);
                 setItemToEdit(data);
-                // console.log("item to edit pos setItemToEdit (state): ", itemToEdit);
             })
                 setShowModal(true);
     };
-
-    // useEffect(()=>{
-    //     setShowEditItem(true);
-    // },[itemToEdit]);
-
-    // const handleUpdate = (id, form) =>{
-    //     // const updInfo = form;
-    //     console.log("form info: ",form.description.value);
-    //     // const res = await fetch(`http://localhost:4000/api/stickers/${id}`,{
-    //     //     method: 'PATCH',
-    //     //     headers: {'Content-type': 'application/json'},
-    //     //     body: JSON.stringify({ description, size, price: Number(price), category, stock: Number(stock), discountPerCent: Number(discountPerCent) })
-    //     // });
-    //     // const data = await res.json();
-    //     // console.log("updated: ", data);
-    //     // if(res.ok){
-    //     //     alert("item updated!");
-    //     //     handleClose();
-    //     // }
-    // }
 
     const displayItems = async () => {
         await fetch('http://localhost:4000/api/stickers')
             .then(res => res.json())
             .then(data => {
-                setItems(data);
+                setItems(data.data);
             });
     }
 
@@ -69,7 +60,12 @@ export default function ListToEdit(){
 
     return(
         <>
-            <h4>Edit</h4>
+            <Stack direction="horizontal">
+                <div><h4>Edit</h4></div>
+                <div className="ms-auto">
+                    <Form.Control type="text" placeholder="Type name or category" onChange={filterStickers}/>
+                </div>
+            </Stack>
             { items.map(item => <ItemEditRow key={item._id}
                                              sticker={item}
                                              delItem={handleDelete}

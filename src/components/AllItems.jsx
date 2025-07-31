@@ -5,7 +5,7 @@ export default function AllItems({stickers}){
 
     return(
         <>
-            <h2>The Haus Collection</h2>
+            <h3 className="mt-2 mb-4">The Haus Collection</h3>
             <ItemList stickers={stickers}/>
         </>
     )

@@ -28,7 +28,7 @@ export default function Footer(){
                     </Col>
                 </Row>
                 <hr/>
-                <Row>
+                <Row className="pb-2">
                     <Col>Developed by Lucas Oliveira</Col>
                     <Col>&copy; Stickrhaus</Col>
                 </Row>

@@ -11,7 +11,7 @@ export default function Header() {
                 <div className="ms-4"><Link to="/"><h1><img src={logo} width="230px" alt="StickrHaus logo"/></h1></Link></div>
                 <Navbar />
             </Stack>
-            <hr className="border border-primary border-2 opacity-75 my-1 mx-lg-4"/>
+            {/*<hr className="border border-primary border-2 opacity-75 my-1 mx-lg-4"/>*/}
         </>
     )
 }

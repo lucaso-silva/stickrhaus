@@ -44,7 +44,7 @@ function cartReducer(cart, action){
                 localStorage.setItem('cart', JSON.stringify([...cart, newItem]));
                 return [...cart, newItem];
             }
-            return cart;
+            return [...cart];
         }
         case 'remove':{
             const newCart = cart.filter((item)=> item.id !== action.id);
@@ -58,7 +58,7 @@ function cartReducer(cart, action){
                 }
             });
             localStorage.setItem('cart', JSON.stringify(cart));
-            return cart;
+            return [...cart];
         }
         case 'clear': {
             localStorage.setItem('cart', JSON.stringify(action.cart));

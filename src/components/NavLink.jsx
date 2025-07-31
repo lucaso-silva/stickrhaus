@@ -5,11 +5,11 @@ export default function NavLink({ user }) {
     return (
         <>
             {admin ? (
-                <Link to='/adminpanel' className="navLink">Admin Panel</Link>
+                <Link to='/admin' className="navLink">Admin Panel</Link>
             ) : (
                 <>
                     {/*<Link to='/wishlist' className="navLink">Wishlist</Link>*/}
-                    <Link to='/checkoutaddress' className="navLink">Checkout</Link>
+                    <Link to='/create-checkout-session' className="navLink">Checkout</Link>
                 </>
             )}
         </>

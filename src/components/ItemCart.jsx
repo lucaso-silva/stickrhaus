@@ -5,6 +5,7 @@ import {useCartDispatch} from "../contexts/CartContext.jsx";
 export default function ItemCart({sticker}) {
     const dispatch = useCartDispatch();
     const [ stickerQty, setStickerQty ] = useState(sticker.qty);
+
     return(
         <>
             <ListGroup.Item className="d-flex justify-content-between">
@@ -35,10 +36,6 @@ export default function ItemCart({sticker}) {
                                            id:sticker.id,
                                        })
                                    } else {
-                                       // dispatch({
-                                       //     type: 'remove',
-                                       //     id: sticker.id,
-                                       // })
                                        alert('Minimum amount 1, or click remove');
                                    }
                                 }}>-</span>
@@ -50,7 +47,7 @@ export default function ItemCart({sticker}) {
                                         id:sticker.id,
                                         description:sticker.description,
                                         price:sticker.price,
-                                        discountPerCent: sticker.discountPerCent,
+                                        discountPerCent:sticker.discountPerCent,
                                     })
                                 }}>+</span>
                             </div>

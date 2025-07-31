@@ -9,8 +9,8 @@ export default function ItemEditRow({ sticker, delItem, toShow  }) {
             <Stack direction="horizontal" gap={3}>
                 <div><img src="https://placehold.co/60x70" alt="item" /></div>
                 <div>
-                    <p>Description: {sticker.description}</p>
-                    <p>Price: {sticker.price}</p>
+                    <p><span className="fw-semibold">Description:</span> {sticker.description}</p>
+                    <p><span className="fw-medium">Price:</span> {sticker.discountPerCent > 0 ? <span className="text-danger">{(sticker.price - sticker.price*sticker.discountPerCent/100).toFixed(2)}</span> : <span>{sticker.price}</span>}</p>
                 </div>
                 <div className="ms-auto d-flex flex-column justify-content-between">
                     <i className="bi bi-trash3 clickable toDel" onClick={()=>delItem(sticker._id)}></i>

@@ -2,13 +2,30 @@ import Header from '../components/Header.jsx';
 import Footer from '../components/Footer';
 import FormNewItem from '../components/FormNewItem';
 import { Button, Container, Row, Col} from "react-bootstrap";
-import { useState} from "react";
+import {useEffect, useState} from "react";
 import ListToEdit from '../components/ListToEdit';
 import admin_settings from '../img/admin_settings.svg'
+import {useNavigate} from "react-router-dom";
 
 export default function AdminPanel(){
     const [addNewItem, setAddNewItem] = useState(false);
     const [editItem, setEditItem] = useState(false);
+    // const [ admin, setAdmin] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        fetch('http://localhost:4000/api/auth/admin',{
+            credentials: 'include',
+        })
+            .then(res => res.ok ? res.json() : null)
+            .then(data => {
+                console.log("front data: ",data);
+                if(!data || data.role !== 'admin'){
+                    navigate('/');
+                }
+                console.log("Admin panel");
+            })
+    },[ ])
 
     return(
         <Container fluid>
