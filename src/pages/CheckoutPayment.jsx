@@ -1,21 +1,20 @@
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
-import PaymentInfo from "../components/PaymentInfo.jsx";
-import {Breadcrumb, Container} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import { loadStripe } from "@stripe/stripe-js";
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
 import {useCallback} from "react";
 import { useCart } from "../contexts/CartContext.jsx";
-import {data} from "react-router-dom";
 import EmptyCart from "../components/EmptyCart.jsx";
 
 const stripePromise = loadStripe("pk_test_51RgK2N4PJYdvk5e9lYKmrvvOXnHCfDe3aWPBOqJwzV8Ro3uNspAjaEL3I0OyTSqxqVkJsEc2pdTM7DZUHiBlpziB00EtpW0WlS");
 
 export default function CheckoutPayment() {
     const cart = useCart();
+    const api = import.meta.env.VITE_API_URL;
 
     const fetchClientSecret = useCallback(()=>{
-        return fetch("http://localhost:4000/api/checkout/create-checkout-session",{
+        return fetch(`${api}/api/checkout/create-checkout-session`,{
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({cart}),

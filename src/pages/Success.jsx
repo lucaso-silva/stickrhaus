@@ -12,11 +12,12 @@ export default function Success(){
     const [customerEmail, setCustomerEmail] = useState('');
     const navigate = useNavigate();
     const cartDispatch = useCartDispatch();
+    const api = import.meta.env.VITE_API_URL;
 
     const sessionId = searchParams.get('session_id');
 
     useEffect(() => {
-        fetch(`http://localhost:4000/api/checkout/session_status?session_id=${sessionId}`)
+        fetch(`${api}/api/checkout/session_status?session_id=${sessionId}`)
             .then((res) => res.json())
             .then((data) => {
                 setStatus(data.status);
@@ -48,7 +49,6 @@ export default function Success(){
                 </Container>
                 <Footer />
             </>
-
         )
     }
     return null;

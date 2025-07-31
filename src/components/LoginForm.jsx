@@ -8,6 +8,7 @@ export default function LoginForm() {
     const navigate = useNavigate();
     const dispatch = useLoggedUserDispatch();
     const { Formik } = formik;
+    const api = import.meta.env.VITE_API_URL;
 
     const schema = yup.object().shape({
         email: yup.string().required("Email is required"),
@@ -15,7 +16,7 @@ export default function LoginForm() {
     });
 
     const handleLogin = async (values) =>{
-        const res = await fetch('http://localhost:4000/api/auth/login', {
+        const res = await fetch(`${api}/api/auth/login`, {
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-type': 'application/json' },

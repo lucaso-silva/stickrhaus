@@ -6,6 +6,7 @@ import * as yup from "yup";
 export default function SignupForm(){
     const navigate = useNavigate();
     const { Formik } = formik;
+    const api = import.meta.env.VITE_API_URL;
 
     const schema = yup.object().shape({
         fName: yup.string()
@@ -30,7 +31,7 @@ export default function SignupForm(){
 
     const handleSingIn = async (values) => {
         console.log("values: ", values);
-            const res = await fetch('http://localhost:4000/api/auth/signup', {
+            const res = await fetch(`${api}/api/auth/signup`, {
                 method: 'POST',
                 headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify({

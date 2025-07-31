@@ -7,6 +7,7 @@ export default function ListToEdit(){
     const [items, setItems] = useState([]);
     const [ showModal, setShowModal ] = useState(false);
     const [ itemToEdit, setItemToEdit ] = useState(null);
+    const api = import.meta.env.VITE_API_URL;
 
     const filterStickers = (e)=>{
         if(e.target.value.length > 0){
@@ -30,8 +31,8 @@ export default function ListToEdit(){
         setShowModal(false)
     };
 
-    const handleShow = async (id) => {
-        await fetch(`http://localhost:4000/api/stickers/${id}`)
+    const handleDisplayItem = async (id) => {
+        await fetch(`${api}/api/stickers/${id}`)
             .then(res => res.json())
             .then(data=>{
                 setItemToEdit(data);
@@ -40,7 +41,7 @@ export default function ListToEdit(){
     };
 
     const displayItems = async () => {
-        await fetch('http://localhost:4000/api/stickers')
+        await fetch(`${api}/api/stickers`)
             .then(res => res.json())
             .then(data => {
                 setItems(data.data);
@@ -48,7 +49,7 @@ export default function ListToEdit(){
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:4000/api/stickers/${id}`,{
+        fetch(`${api}/api/stickers/${id}`,{
             method: 'DELETE',
         })
             .then(res=>res.json())
@@ -69,7 +70,7 @@ export default function ListToEdit(){
             { items.map(item => <ItemEditRow key={item._id}
                                              sticker={item}
                                              delItem={handleDelete}
-                                             toShow={handleShow}
+                                             toShow={handleDisplayItem}
                                     />)
             }
             {itemToEdit ? <ItemModal show={showModal}

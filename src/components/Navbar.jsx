@@ -7,7 +7,7 @@ import NavLink from "./NavLink.jsx";
 
 export default function Navbar() {
     const [ numItems, setNumItems ] = useState(0);
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     let goToCart = ()=> { navigate("/cart")};
     let goToLogin = () => { navigate("/login")};
 
@@ -15,6 +15,7 @@ export default function Navbar() {
     const cartDispatch = useCartDispatch();
     const userDispatch = useLoggedUserDispatch();
     const user = useLoggedUser();
+    const api = import.meta.env.VITE_API_URL;
 
     useEffect(()=>{
         setNumItems(cart.reduce((acc,curr)=>{
@@ -23,7 +24,7 @@ export default function Navbar() {
     },[cart])
 
     const handleLogout = async () =>{
-        const res = await fetch('http://localhost:4000/api/auth/logout', {
+        const res = await fetch(`${api}/api/auth/logout`, {
             method: 'POST',
             credentials: 'include',
         });

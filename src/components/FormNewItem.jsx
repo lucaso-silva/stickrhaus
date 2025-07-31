@@ -7,6 +7,7 @@ import {Formik} from "formik";
 export default function FormNewItem() {
     const navigate = useNavigate();
     const { Formik } = formik;
+    const api = import.meta.env.VITE_API_URL;
 
     const schema = yup.object().shape({
         description: yup.string()
@@ -25,7 +26,7 @@ export default function FormNewItem() {
     })
 
     const handleNewItem = async (values) => {
-        const res = await fetch('http://localhost:4000/api/stickers', {
+        const res = await fetch(`${api}/api/stickers`, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ description: values.description, size: values.size, price: values.price, category: values.category, stock: values.stock, discountPerCent: values.discount })

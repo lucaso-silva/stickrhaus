@@ -9,6 +9,7 @@ export default function Sections(){
     const [ offers, setOffers ] = useState([]);
     const [ currPage, setCurrPage ] = useState(1);
     const [ allItems, setAllItems] = useState([]);
+    const api = import.meta.env.VITE_API_URL;
 
     useEffect(()=>{
         fetchStickers();
@@ -16,7 +17,7 @@ export default function Sections(){
     },[currPage]);
 
     const fetchStickers = ()=>{
-        fetch(`http://localhost:4000/api/stickers?page=${currPage}&limit=12`)
+        fetch(`${api}/api/stickers?page=${currPage}&limit=12`)
             .then(res=> res.json())
             .then(data => {
                 setStickers(data.dataPag);

@@ -12,19 +12,15 @@ import Success from "./pages/Success.jsx"
 
 function App() {
     const dispatch = useLoggedUserDispatch();
-    const user = useLoggedUser()
+    const user = useLoggedUser();
+    const api = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
-        fetch('http://localhost:4000/api/auth/admin', {
+        fetch(`${api}/api/auth/me`, {
             credentials: 'include',
         })
             .then(res=>res.ok ? res.json() : null)
             .then(data => {
-                // if(data.role === 'admin'){
-                //     setAdmin(true);
-                // }else{
-                //     setAdmin(false);
-                // }
                 dispatch({
                     type: 'login',
                     loggedUser: data,
@@ -39,7 +35,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/create-checkout-session" element={user ? <CheckoutPayment /> : <Login />} />
-          {/*<Route path="/admin" element={admin ? <AdminPanel /> : <Home />} />*/}
           <Route path="/admin" element={<AdminPanel /> } />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/success-order" element={<Success />} />

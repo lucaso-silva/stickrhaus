@@ -1,5 +1,5 @@
 import { Modal, Form, Button } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function ItemModal({ show, handleClose, sticker, updtList }){
     const [ description, setDescription ] = useState(sticker.description);
@@ -8,10 +8,11 @@ export default function ItemModal({ show, handleClose, sticker, updtList }){
     const [ price, setPrice ] = useState(sticker.price);
     const [ stock, setStock ] = useState(sticker.stock);
     const [ discountPerCent, setDiscountPerCent ] = useState(sticker.discountPerCent);
+    const api = import.meta.env.VITE_API_URL;
 
     const handleUpdate = async (e) =>{
         e.preventDefault();
-        const res = await fetch(`http://localhost:4000/api/stickers/${sticker.id}`,{
+        const res = await fetch(`${api}/api/stickers/${sticker.id}`,{
             method: 'PATCH',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({ description, size, price: Number(price), category, stock: Number(stock), discountPerCent: Number(discountPerCent) })
@@ -87,7 +88,6 @@ export default function ItemModal({ show, handleClose, sticker, updtList }){
                     </Form.Group>
                     <Button type="submit" variant="primary" className="mt-3">Save</Button>
                 </Form>
-                {/*{ sticker.description }*/}
             </Modal.Body>
         </Modal>
     )

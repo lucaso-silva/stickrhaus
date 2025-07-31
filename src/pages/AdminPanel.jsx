@@ -11,9 +11,10 @@ export default function AdminPanel(){
     const [addNewItem, setAddNewItem] = useState(false);
     const [editItem, setEditItem] = useState(false);
     const navigate = useNavigate();
+    const api = import.meta.env.VITE_API_URL;
 
     useEffect(()=>{
-        fetch('http://localhost:4000/api/auth/admin',{
+        fetch(`${api}/api/auth/admin`,{
             credentials: 'include',
         })
             .then(res => res.ok ? res.json() : null)
