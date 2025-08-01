@@ -5,7 +5,7 @@ export default function ItemCard({sticker}) {
     const dispatch = useCartDispatch();
 
     return(
-        <Card style={{ width:"10.75vw"}}>
+        <Card style={{ width:"10.75vw"}} data-testid="sticker-card">
             <Card.Img variant="top" src="https://placehold.co/75x50" />
             <Card.Body>
                 <Card.Title> {sticker.description}</Card.Title>
@@ -26,8 +26,8 @@ export default function ItemCard({sticker}) {
                                 price:sticker.price,
                                 discountPerCent: sticker.discountPerCent/100,
                             })
-                        }}><i className="bi bi-bag-plus"></i></button>
-                        <button className="cardBtn addFav"><i className="bi bi-heart"></i></button>
+                        }}><span className="visually-hidden">Add to cart</span><i className="bi bi-bag-plus"></i></button>
+                    <button className="cardBtn addFav"><i className="bi bi-heart"></i></button>
                 </div>
             </Card.Body>
         </Card>

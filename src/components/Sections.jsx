@@ -62,8 +62,16 @@ export default function Sections(){
         <Container fluid>
             <Row>
                 <Col className="bg-primary-subtle p-4" md={3}>
-                    <h4 className="mt-2">Sticker finder</h4>
-                    <Form.Control type="text" placeholder="Type name or category" onChange={filterStickers}/>
+                    {/*<h4 className="mt-2">Sticker finder</h4>*/}
+                    <Form.Group>
+                        <Form.Label htmlFor="search">Sticker Finder</Form.Label>
+                        <Form.Control name="filterSticker"
+                                      id="search"
+                                      type="text"
+                                      placeholder="Type name or category"
+                                      onChange={filterStickers}
+                        />
+                    </Form.Group>
                     <h5 className="mt-4 mb-2">Sort</h5>
                     <Form.Select onChange={handleSort}>
                         <option>Price:</option>

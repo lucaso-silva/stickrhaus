@@ -57,7 +57,7 @@ export default function Navbar() {
                 </div>
             )
             }
-            <div className="me-5 cart">
+            <div className="me-5 cart" data-testid="cart-info">
                 <span onClick={goToCart}><i className="bi bi-cart2 fs-3 ms-3"></i></span>
                 {numItems>0 ? <span className="cart-count">{numItems}</span>:""}
             </div>
