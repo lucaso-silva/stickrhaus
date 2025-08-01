@@ -61,7 +61,7 @@ export default function Sections(){
     return (
         <Container fluid>
             <Row>
-                <Col className="bg-primary-subtle p-4" xs={12} md={3} lg={3}>
+                <Col className="bg-primary-subtle p-4" xs={12} lg={2}>
                     <Form.Group>
                         <Form.Label htmlFor="search" className="fw-semibold">Sticker Finder</Form.Label>
                         <Form.Control name="filterSticker"
@@ -78,10 +78,10 @@ export default function Sections(){
                         <option value="high">High to low</option>
                     </Form.Select>
                 </Col>
-                <Col xs={12} sm={8} md={6} lg={6}>
+                <Col xs={12} sm={8}  lg={7}>
                     <AllItems stickers={stickers}/>
                 </Col>
-                <Col className="bg-warning-subtle py-s1" xs={12} sm={4} md={3} lg={3}>
+                <Col className="bg-warning-subtle py-s1" xs={12} sm={4} lg={3}>
                     <Offers stickers={offers.slice(6)}/>
                 </Col>
             </Row>
