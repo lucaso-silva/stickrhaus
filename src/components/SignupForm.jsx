@@ -66,7 +66,6 @@ export default function SignupForm(){
                                           type="text"
                                           placeholder="Enter your first name"
                                           value={values.fName}
-                                          // onChange={e=>setFirstName(e.target.value)}
                                           onChange={handleChange}
                                           isInvalid={!!errors.fName}
                             />
@@ -78,7 +77,6 @@ export default function SignupForm(){
                                           type="text"
                                           placeholder="Enter your last name"
                                           value={values.lName}
-                                          // onChange={e=>setLastName(e.target.value)}
                                           onChange={handleChange}
                                           isInvalid={!!errors.lName}
                             />
@@ -91,7 +89,6 @@ export default function SignupForm(){
                                       type="email"
                                       placeholder="Enter email"
                                       value={values.email}
-                                      // onChange={e=>setEmail(e.target.value)}
                                       onChange={handleChange}
                                       isInvalid={!!errors.email}
                         />
@@ -106,7 +103,6 @@ export default function SignupForm(){
                                       onChange={handleChange}
                                       isInvalid={!!errors.password}
                         />
-                        {/*<Form.Text id="passwordHelper" muted>Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji</Form.Text>*/}
                         <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group controlId="password2" className="mt-2">
@@ -115,7 +111,6 @@ export default function SignupForm(){
                                       type="password"
                                       placeholder="Repeat Password"
                                       value={values.password2}
-                                      // onChange={e=>setPassword(e.target.value)}
                                       onChange={handleChange}
                                       isInvalid={!!errors.password2}
                         />

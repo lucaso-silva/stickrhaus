@@ -14,7 +14,7 @@ export default function AdminPanel(){
     const api = import.meta.env.VITE_API_URL;
 
     useEffect(()=>{
-        fetch(`${api}/api/auth/me`,{
+        fetch(`${api}/api/auth/admin`,{
             credentials: 'include',
         })
             .then(res => res.ok ? res.json() : null)

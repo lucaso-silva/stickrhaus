@@ -61,10 +61,9 @@ export default function Sections(){
     return (
         <Container fluid>
             <Row>
-                <Col className="bg-primary-subtle p-4" md={3}>
-                    {/*<h4 className="mt-2">Sticker finder</h4>*/}
+                <Col className="bg-primary-subtle p-4" xs={12} md={3} lg={3}>
                     <Form.Group>
-                        <Form.Label htmlFor="search">Sticker Finder</Form.Label>
+                        <Form.Label htmlFor="search" className="fw-semibold">Sticker Finder</Form.Label>
                         <Form.Control name="filterSticker"
                                       id="search"
                                       type="text"
@@ -72,17 +71,17 @@ export default function Sections(){
                                       onChange={filterStickers}
                         />
                     </Form.Group>
-                    <h5 className="mt-4 mb-2">Sort</h5>
+                    <h6 className="mt-4 mb-2">Sort</h6>
                     <Form.Select onChange={handleSort}>
                         <option>Price:</option>
                         <option value="low">Low to high</option>
                         <option value="high">High to low</option>
                     </Form.Select>
                 </Col>
-                <Col md={6}>
+                <Col xs={12} sm={8} md={6} lg={6}>
                     <AllItems stickers={stickers}/>
                 </Col>
-                <Col className="bg-warning-subtle py-1" md={3}>
+                <Col className="bg-warning-subtle py-s1" xs={12} sm={4} md={3} lg={3}>
                     <Offers stickers={offers.slice(6)}/>
                 </Col>
             </Row>

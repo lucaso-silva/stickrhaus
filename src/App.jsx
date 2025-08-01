@@ -26,7 +26,7 @@ function App() {
                     loggedUser: data,
                 });
             });
-    }, []);
+    }, [user]);
 
   return (
       <Routes>

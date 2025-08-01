@@ -41,8 +41,8 @@ export default function FormNewItem() {
     }
 
     return(
-            <Card style={{width:'60%'}} className="mx-auto">
-                <Card.Title>Add New Sticker</Card.Title>
+            <Card style={{width:'60%'}} className="mx-auto p-2">
+                <Card.Title className="text-center">Add New Sticker</Card.Title>
                 <Card.Body>
                     <Formik validationSchema={schema}
                             onSubmit={handleNewItem}
