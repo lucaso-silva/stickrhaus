@@ -60,28 +60,32 @@ export default function SignupForm(){
             {({ handleSubmit, handleChange, values, touched, handleBlur, errors})=>(
                 <Form noValidate onSubmit={handleSubmit}>
                     <Row>
-                        <Form.Group as={Col} controlId="fname">
-                            <Form.Label>First name</Form.Label>
-                            <Form.Control name="fName"
-                                          type="text"
-                                          placeholder="Enter your first name"
-                                          value={values.fName}
-                                          onChange={handleChange}
-                                          isInvalid={!!errors.fName}
-                            />
-                            <Form.Control.Feedback type="invalid">{errors.fName}</Form.Control.Feedback>
-                        </Form.Group>
-                        <Form.Group as={Col} controlId="lname">
-                            <Form.Label>Last name</Form.Label>
-                            <Form.Control name="lName"
-                                          type="text"
-                                          placeholder="Enter your last name"
-                                          value={values.lName}
-                                          onChange={handleChange}
-                                          isInvalid={!!errors.lName}
-                            />
-                            <Form.Control.Feedback type="invalid">{errors.lName}</Form.Control.Feedback>
-                        </Form.Group>
+                        <Col xs={12} md={6}>
+                            <Form.Group as={Col} controlId="fname">
+                                <Form.Label>First name</Form.Label>
+                                <Form.Control name="fName"
+                                              type="text"
+                                              placeholder="Enter your first name"
+                                              value={values.fName}
+                                              onChange={handleChange}
+                                              isInvalid={!!errors.fName}
+                                />
+                                <Form.Control.Feedback type="invalid">{errors.fName}</Form.Control.Feedback>
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group as={Col} controlId="lname">
+                                <Form.Label>Last name</Form.Label>
+                                <Form.Control name="lName"
+                                              type="text"
+                                              placeholder="Enter your last name"
+                                              value={values.lName}
+                                              onChange={handleChange}
+                                              isInvalid={!!errors.lName}
+                                />
+                                <Form.Control.Feedback type="invalid">{errors.lName}</Form.Control.Feedback>
+                            </Form.Group>
+                        </Col>
                     </Row>
                     <Form.Group controlId="email" className="mt-2">
                         <Form.Label>Email address</Form.Label>

@@ -8,14 +8,16 @@ export default function Signup(){
     return(
         <>
             <Header />
-            <Card style={{width:'40%'}} className="mx-auto my-5 p-5">
-                <Card.Title className="text-center">Sign Up</Card.Title>
-                <Card.Body>
-                    <SignupForm/>
-                    <hr/>
-                    <Card.Text>Already registered? <Link to="/login">Log in</Link></Card.Text>
-                </Card.Body>
-            </Card>
+            <div className="col-10 col-sm-9 col-lg-5 mx-auto py-5">
+                <Card className="p-3">
+                    <Card.Title className="text-center">Sign Up</Card.Title>
+                    <Card.Body>
+                        <SignupForm/>
+                        <hr/>
+                        <Card.Text>Already registered? <Link to="/login">Log in</Link></Card.Text>
+                    </Card.Body>
+                </Card>
+            </div>
             <Footer/>
         </>
     )

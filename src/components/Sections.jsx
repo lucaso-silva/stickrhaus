@@ -1,6 +1,6 @@
 import AllItems from './AllItems.jsx';
 import Offers from './Offers.jsx';
-import { Container, Col, Row, Form, Pagination } from 'react-bootstrap';
+import { Container, Col, Row, Form, Pagination, Spinner } from 'react-bootstrap';
 import {useEffect, useState} from "react";
 
 export default function Sections(){
@@ -17,7 +17,7 @@ export default function Sections(){
     },[currPage]);
 
     const fetchStickers = ()=>{
-        fetch(`${api}/api/stickers?page=${currPage}&limit=12`)
+        fetch(`${api}/api/stickers?page=${currPage}&limit=15`)
             .then(res=> res.json())
             .then(data => {
                 setStickers(data.dataPag);
@@ -55,7 +55,11 @@ export default function Sections(){
         }
     }
 
-    if(isLoading) return <p>Loading stickers...</p>;
+    if(isLoading) return (
+        <div className="text-center py-5">
+            <Spinner animation="border" variant="primary"/>
+            <p className="my-4">Loading stickers...</p>
+        </div>);
     // if(stickers.length === 0) return <p>No stickers found.</p>;
 
     return (

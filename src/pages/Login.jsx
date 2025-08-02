@@ -9,14 +9,16 @@ export default function Login(){
     return(
         <>
             <Header />
-            <Card style={{width:'40%'}} className="mx-auto my-5 p-5">
-                <Card.Title className="text-center">Login</Card.Title>
-                <Card.Body>
-                    <LoginForm/>
-                    <hr/>
-                    <Card.Text>Not registered yet? <Link to="/signup">Sign up</Link></Card.Text>
-                </Card.Body>
-            </Card>
+            <div className="col-10 col-sm-6 col-lg-4 mx-auto py-5">
+                <Card className="p-3">
+                    <Card.Title className="text-center">Login</Card.Title>
+                    <Card.Body>
+                        <LoginForm/>
+                        <hr/>
+                        <Card.Text>Not registered yet? <Link to="/signup">Sign up</Link></Card.Text>
+                    </Card.Body>
+                </Card>
+            </div>
             <Footer />
         </>
     )
