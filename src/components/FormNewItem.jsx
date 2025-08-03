@@ -61,7 +61,7 @@ export default function FormNewItem() {
                                     />
                                     <Form.Control.Feedback type="invalid">{errors.description}</Form.Control.Feedback>
                                 </Form.Group>
-                                <div className="d-sm-flex gap-3 justify-content-sm-between">
+                                <div className="d-sm-flex gap-3 justify-content-sm-between my-2">
                                     <Form.Group className="col-sm-4" controlId="size">
                                         <Form.Label>Size</Form.Label>
                                         <Form.Control name="size"
@@ -85,7 +85,7 @@ export default function FormNewItem() {
                                         <Form.Control.Feedback type="invalid">{errors.category}</Form.Control.Feedback>
                                     </Form.Group>
                                 </div>
-                                <div className="d-sm-flex gap-3 flex-wrap justify-content-sm-between justify-content-lg-start">
+                                <div className="d-sm-flex gap-3 flex-wrap justify-content-sm-between justify-content-lg-start my-2">
                                     <Form.Group className="col-sm-5 col-lg-3" controlId="price">
                                         <Form.Label>Price</Form.Label>
                                         <Form.Control name="price"
