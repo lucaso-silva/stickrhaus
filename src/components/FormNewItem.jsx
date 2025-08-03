@@ -41,7 +41,7 @@ export default function FormNewItem() {
     }
 
     return(
-            <Card style={{width:'60%'}} className="mx-auto p-2">
+            <Card className="mx-auto p-2 p-lg-4">
                 <Card.Title className="text-center">Add New Sticker</Card.Title>
                 <Card.Body>
                     <Formik validationSchema={schema}
@@ -61,58 +61,62 @@ export default function FormNewItem() {
                                     />
                                     <Form.Control.Feedback type="invalid">{errors.description}</Form.Control.Feedback>
                                 </Form.Group>
-                                <Form.Group controlId="size">
-                                    <Form.Label>Size</Form.Label>
-                                    <Form.Control name="size"
-                                                  type="text"
-                                                  placeholder="Enter size per inch"
-                                                  value={values.size}
-                                                  onChange={handleChange}
-                                                  isInvalid={!!errors.size}
-                                    />
-                                    <Form.Control.Feedback type="invalid">{errors.size}</Form.Control.Feedback>
-                                </Form.Group>
-                                <Form.Group controlId="category">
-                                    <Form.Label>Category</Form.Label>
-                                    <Form.Control name="category"
-                                                  type="text"
-                                                  placeholder="Enter category"
-                                                  value={values.category}
-                                                  onChange={handleChange}
-                                                  isInvalid={!!errors.category}
-                                    />
-                                    <Form.Control.Feedback type="invalid">{errors.category}</Form.Control.Feedback>
-                                </Form.Group>
-                                <Form.Group controlId="price">
-                                    <Form.Label>Price</Form.Label>
-                                    <Form.Control name="price"
-                                                  type="number"
-                                                  value={values.price}
-                                                  onChange={handleChange}
-                                                  isInvalid={!!errors.price}
-                                    />
-                                    <Form.Control.Feedback type="invalid">{errors.price}</Form.Control.Feedback>
-                                </Form.Group>
-                                <Form.Group controlId="stock">
-                                    <Form.Label>Stock</Form.Label>
-                                    <Form.Control name="stock"
-                                                  type="number"
-                                                  value={values.stock}
-                                                  onChange={handleChange}
-                                                  isInvalid={!!errors.stock}
-                                    />
-                                    <Form.Control.Feedback type="invalid">{errors.stock}</Form.Control.Feedback>
-                                </Form.Group>
-                                <Form.Group controlId="discount">
-                                    <Form.Label>Discount per cent</Form.Label>
-                                    <Form.Control name="discount"
-                                                  type="number"
-                                                  value={values.discount}
-                                                  onChange={handleChange}
-                                                  isInvalid={!!errors.discount}
-                                    />
-                                    <Form.Control.Feedback type="invalid">{errors.discount}</Form.Control.Feedback>
-                                </Form.Group>
+                                <div className="d-sm-flex gap-3 justify-content-sm-between">
+                                    <Form.Group className="col-sm-4" controlId="size">
+                                        <Form.Label>Size</Form.Label>
+                                        <Form.Control name="size"
+                                                      type="text"
+                                                      placeholder="Enter size per inch"
+                                                      value={values.size}
+                                                      onChange={handleChange}
+                                                      isInvalid={!!errors.size}
+                                        />
+                                        <Form.Control.Feedback type="invalid">{errors.size}</Form.Control.Feedback>
+                                    </Form.Group>
+                                    <Form.Group className="col-sm-7" controlId="category">
+                                        <Form.Label>Category</Form.Label>
+                                        <Form.Control name="category"
+                                                      type="text"
+                                                      placeholder="Enter category"
+                                                      value={values.category}
+                                                      onChange={handleChange}
+                                                      isInvalid={!!errors.category}
+                                        />
+                                        <Form.Control.Feedback type="invalid">{errors.category}</Form.Control.Feedback>
+                                    </Form.Group>
+                                </div>
+                                <div className="d-sm-flex gap-3 flex-wrap justify-content-sm-between justify-content-lg-start">
+                                    <Form.Group className="col-sm-5 col-lg-3" controlId="price">
+                                        <Form.Label>Price</Form.Label>
+                                        <Form.Control name="price"
+                                                      type="number"
+                                                      value={values.price}
+                                                      onChange={handleChange}
+                                                      isInvalid={!!errors.price}
+                                        />
+                                        <Form.Control.Feedback type="invalid">{errors.price}</Form.Control.Feedback>
+                                    </Form.Group>
+                                    <Form.Group className="col-sm-6 col-lg-3" controlId="stock">
+                                        <Form.Label>Stock</Form.Label>
+                                        <Form.Control name="stock"
+                                                      type="number"
+                                                      value={values.stock}
+                                                      onChange={handleChange}
+                                                      isInvalid={!!errors.stock}
+                                        />
+                                        <Form.Control.Feedback type="invalid">{errors.stock}</Form.Control.Feedback>
+                                    </Form.Group>
+                                    <Form.Group className="col-sm-5 col-lg-3" controlId="discount">
+                                        <Form.Label>Discount</Form.Label>
+                                        <Form.Control name="discount"
+                                                      type="number"
+                                                      value={values.discount}
+                                                      onChange={handleChange}
+                                                      isInvalid={!!errors.discount}
+                                        />
+                                        <Form.Control.Feedback type="invalid">{errors.discount}</Form.Control.Feedback>
+                                    </Form.Group>
+                                </div>
                                 <Button type="submit" variant="primary" className="mt-4">Save</Button>
                             </Form>
                         )}

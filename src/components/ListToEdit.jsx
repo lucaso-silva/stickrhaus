@@ -60,8 +60,8 @@ export default function ListToEdit(){
     }
 
     return(
-        <>
-            <Stack direction="horizontal">
+        <div className="col-sm-11 mx-auto ms-lg-5 col-lg-8">
+            <Stack className="mb-4 col-md-10 mx-auto" direction="horizontal">
                 <div><h4>Edit</h4></div>
                 <div className="ms-auto">
                     <Form.Control type="text" placeholder="Type name or category" onChange={filterStickers}/>
@@ -79,7 +79,7 @@ export default function ListToEdit(){
                                      updtList={displayItems}
                             /> :
                 ""}
-        </>
+        </div>
 
     )
 }

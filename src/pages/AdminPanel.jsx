@@ -5,7 +5,7 @@ import { Button, Container, Row, Col} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import ListToEdit from '../components/ListToEdit';
 import admin_settings from '../img/admin_settings.svg'
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function AdminPanel(){
     const [addNewItem, setAddNewItem] = useState(false);
@@ -25,16 +25,18 @@ export default function AdminPanel(){
             })
     },[])
 
+    const link = <Link to='/' className="navLink">Home</Link>
+
     return(
         <Container fluid>
-            <Header />
+            <Header link={link}/>
             <Row>
                 <Col>
-                    <h2 className="text-center">Admin Panel</h2>
+                    <h2 className="text-center mt-2 mb-4">Admin Panel</h2>
                 </Col>
             </Row>
             <Row>
-                <Col className="d-flex flex-column gap-3" xs={2}>
+                <Col className="d-flex flex-column flex-sm-row flex-lg-column justify-content-center justify-content-lg-start gap-3 p-4" xs={12} lg={3}>
                     <Button onClick={()=> {
                         setAddNewItem(true);
                         setEditItem(false);
@@ -44,9 +46,11 @@ export default function AdminPanel(){
                         setEditItem(true);
                     }}>Edit a item</Button>
                 </Col>
-                <Col>
+                <Col className="p-4">
                     { addNewItem ? (
-                        <FormNewItem />
+                        <div className="col-sm-10 col-md-9 mx-auto">
+                            <FormNewItem />
+                        </div>
                     ) : ""
                     }
                     {editItem ? (

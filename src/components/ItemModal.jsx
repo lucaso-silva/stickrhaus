@@ -41,51 +41,50 @@ export default function ItemModal({ show, handleClose, sticker, updtList }){
                                       onChange={e=> setDescription(e.target.value)}
                         />
                     </Form.Group>
-
-                    <Form.Group controlId="size">
-                        <Form.Label>Size</Form.Label>
-                        <Form.Control required
-                                      type="text"
-                                      value={size}
-                                      onChange={e=> setSize(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group controlId="category">
-                        <Form.Label>Category</Form.Label>
-                        <Form.Control required
-                                      type="text"
-                                      value={category}
-                                      onChange={e=> setCategory(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group controlId="price">
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control required
-                                      type="number"
-                                      value={price}
-                                      onChange={e=> setPrice(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group controlId="stock">
-                        <Form.Label>Stock</Form.Label>
-                        <Form.Control required
-                                      type="number"
-                                      value={stock}
-                                      onChange={e=> setStock(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group controlId="discount">
-                        <Form.Label>Discount per cent</Form.Label>
-                        <Form.Control required
-                                      type="number"
-                                      value={discountPerCent}
-                                      onChange={e=> setDiscountPerCent(e.target.value)}
-                        />
-                    </Form.Group>
+                    <div className="d-sm-flex gap-2 justify-content-between my-2">
+                        <Form.Group controlId="size">
+                            <Form.Label>Size</Form.Label>
+                            <Form.Control required
+                                          type="text"
+                                          value={size}
+                                          onChange={e=> setSize(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Form.Group className="col-sm-6" controlId="category">
+                            <Form.Label>Category</Form.Label>
+                            <Form.Control required
+                                          type="text"
+                                          value={category}
+                                          onChange={e=> setCategory(e.target.value)}
+                            />
+                        </Form.Group>
+                    </div>
+                    <div className="d-sm-flex gap-3 justify-content-between my-2">
+                        <Form.Group controlId="price">
+                            <Form.Label>Price</Form.Label>
+                            <Form.Control required
+                                          type="number"
+                                          value={price}
+                                          onChange={e=> setPrice(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="stock">
+                            <Form.Label>Stock</Form.Label>
+                            <Form.Control required
+                                          type="number"
+                                          value={stock}
+                                          onChange={e=> setStock(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="discount">
+                            <Form.Label>Discount</Form.Label>
+                            <Form.Control required
+                                          type="number"
+                                          value={discountPerCent}
+                                          onChange={e=> setDiscountPerCent(e.target.value)}
+                            />
+                        </Form.Group>
+                    </div>
                     <Button type="submit" variant="primary" className="mt-3">Save</Button>
                 </Form>
             </Modal.Body>
