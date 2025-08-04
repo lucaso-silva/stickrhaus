@@ -1,15 +1,8 @@
 import { Modal, Form, Button } from 'react-bootstrap';
-import { useState } from 'react';
 import * as formik from 'formik';
 import * as yup from 'yup';
 
 export default function ItemModal({ show, handleClose, sticker, updtList }){
-    // const [ description, setDescription ] = useState(sticker.description);
-    // const [ size, setSize ] = useState(sticker.size);
-    // const [ category, setCategory ] = useState(sticker.category)
-    // const [ price, setPrice ] = useState(sticker.price);
-    // const [ stock, setStock ] = useState(sticker.stock);
-    // const [ discountPerCent, setDiscountPerCent ] = useState(sticker.discountPerCent);
     const api = import.meta.env.VITE_API_URL;
     const { Formik } = formik;
 
@@ -54,7 +47,7 @@ export default function ItemModal({ show, handleClose, sticker, updtList }){
                         onSubmit={handleUpdate}
                         initialValues={{description:sticker.description, size:sticker.size, price:sticker.price, category:sticker.category, stock:sticker.stock, discount:sticker.discountPerCent}}
                 >
-                    {({ handleSubmit, handleChange, values, touched, handleBlur, errors})=>(
+                    {({ handleSubmit, handleChange, values, errors})=>(
                         <Form noValidate onSubmit={handleSubmit}>
                             <Form.Group controlId="description">
                                 <Form.Label>Description</Form.Label>

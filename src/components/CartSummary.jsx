@@ -50,7 +50,7 @@ export default function CartSummary(){
                         </Row>
                     </Container>
                 {/*</Card.Text>*/}
-                <Button className="mt-3" onClick={()=>navigate('/create-checkout-session')}>Go to Checkout <i className="bi bi-arrow-right ms-2"></i></Button>
+                <Button className="mt-5" onClick={()=>navigate('/create-checkout-session')}>Go to Checkout <i className="bi bi-arrow-right ms-2"></i></Button>
             </Card.Body>
         </Card>
     )

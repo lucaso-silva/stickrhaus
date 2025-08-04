@@ -11,7 +11,7 @@ export default function LoginForm() {
     const api = import.meta.env.VITE_API_URL;
 
     const schema = yup.object().shape({
-        email: yup.string().required("Email is required"),
+        email: yup.string().email("Enter a valid email").required("Email is required"),
         password: yup.string().required("Password is required"),
     });
 

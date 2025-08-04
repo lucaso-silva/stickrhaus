@@ -20,19 +20,19 @@ export default function Cart(){
                         </Col>
                     </Row>
                 ):("")}
-                <Row>
+                <Row className="my-2 justify-content-center">
                     {cart.length===0 ? (
                         <EmptyCart />
                         ):(
                         <>
-                            <Col>
-                                <ListGroup>
+                            <Col md={9} lg={5}>
+                                <ListGroup className="mb-2">
                                     {cart.map((item) => <ItemCart key={item.id}
                                                                   sticker={item}
                                     />)}
                                 </ListGroup>
                             </Col>
-                            <Col>
+                            <Col md={9} lg={4} xl={3}>
                                 <CartSummary />
                             </Col>
                         </>
