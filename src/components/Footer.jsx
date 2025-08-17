@@ -32,7 +32,7 @@ export default function Footer(){
                 <hr/>
                 <Row className="pb-2 px-3">
                     <Col className="text-center">Developed by Lucas Oliveira</Col>
-                    <Col>&copy; Stickrhaus</Col>
+                    <Col>&copy; StickrHaus</Col>
                 </Row>
             </Container>
         </>

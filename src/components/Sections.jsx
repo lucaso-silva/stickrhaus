@@ -4,40 +4,51 @@ import { Container, Col, Row, Form, Pagination, Spinner } from 'react-bootstrap'
 import {useEffect, useState} from "react";
 
 export default function Sections(){
-    const [ stickers, setStickers ] = useState([]);
+    const [ stickersDisplayed, setStickersDisplayed ] = useState([]);
     const [ isLoading, setLoading ] = useState(true);
     const [ offers, setOffers ] = useState([]);
     const [ currPage, setCurrPage ] = useState(1);
     const [ allItems, setAllItems] = useState([]);
+    const [ searchValue, setSearchValue ] = useState("");
     const api = import.meta.env.VITE_API_URL;
+
+    const numItemsToDisplay = 15;
 
     useEffect(()=>{
         fetchStickers();
+    },[]);
 
-    },[currPage]);
+    useEffect(()=>{
+        const start = (currPage-1)*numItemsToDisplay;
+        const end= start+numItemsToDisplay;
+        setStickersDisplayed(allItems.slice(start,end));
+    }, [currPage])
 
     const fetchStickers = ()=>{
-        fetch(`${api}/api/stickers?page=${currPage}&limit=15`)
+        fetch(`${api}/api/stickers`)
             .then(res=> res.json())
             .then(data => {
-                setStickers(data.dataPag);
+                setAllItems(data);
 
-                let itemsInOffer = data.data.filter((item)=>item.discountPerCent > 0);
+                setStickersDisplayed(data.slice(0,numItemsToDisplay));
 
+                let itemsInOffer = data.filter((item)=>item.discountPerCent > 0);
                 setOffers(itemsInOffer);
-                setAllItems(data.data);
                 setLoading(false);
             });
     }
 
     const filterStickers = (e)=>{
+            setSearchValue(e.target.value);
         if(e.target.value.length > 0){
             const filteredStickers = allItems.filter((item)=>{
-                if(item.description.toLowerCase().includes(e.target.value.toLowerCase()) || item.category.toLowerCase().includes(e.target.value.toLowerCase())){
+                if(item.description.toLowerCase().includes(searchValue.toLowerCase()) || item.category.toLowerCase().includes(searchValue.toLowerCase())){
                     return item;
                 }
-            })
-            setStickers(filteredStickers);
+            });
+            setCurrPage(1);
+            setAllItems(filteredStickers);
+            setStickersDisplayed(filteredStickers.slice(0,numItemsToDisplay));
         } else {
             fetchStickers();
         }
@@ -46,11 +57,16 @@ export default function Sections(){
     const handleSort = (e) => {
         if(e.target.value === 'low'){
             const sorted = allItems.toSorted((a,b) => a.price - b.price);
-            setStickers(sorted)
+            setCurrPage(1);
+            setAllItems(sorted);
+            setStickersDisplayed(sorted.slice(0,numItemsToDisplay));
         }else if(e.target.value === 'high'){
-            const sorted = stickers.toSorted((a,b) => b.price - a.price);
-            setStickers(sorted)
+            const sorted = allItems.toSorted((a,b) => b.price - a.price);
+            setCurrPage(1);
+            setAllItems(sorted);
+            setStickersDisplayed(sorted.slice(0,numItemsToDisplay));
         }else{
+            setSearchValue("");
             fetchStickers();
         }
     }
@@ -73,6 +89,7 @@ export default function Sections(){
                                       type="text"
                                       placeholder="Type name or category"
                                       onChange={filterStickers}
+                                      value={searchValue}
                         />
                     </Form.Group>
                     <h6 className="mt-4 mb-2">Sort</h6>
@@ -83,7 +100,7 @@ export default function Sections(){
                     </Form.Select>
                 </Col>
                 <Col xs={12} sm={8}  lg={7}>
-                    <AllItems stickers={stickers}/>
+                    <AllItems stickers={stickersDisplayed}/>
                 </Col>
                 <Col className="bg-warning-subtle py-s1" xs={12} sm={4} lg={3}>
                     <Offers stickers={offers.slice(6)}/>
@@ -98,7 +115,7 @@ export default function Sections(){
                         }}/>
                         <Pagination.Item>{currPage}</Pagination.Item>
                         <Pagination.Next onClick={()=>{
-                            if(currPage < allItems.length/12){
+                            if(currPage < allItems.length/numItemsToDisplay){
                                 setCurrPage(currPage+1);
                             }
                         }}/>
