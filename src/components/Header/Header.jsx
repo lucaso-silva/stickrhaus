@@ -1,4 +1,4 @@
-import logo from '../img/logo.png';
+import logo from '../../img/logo.png';
 import {Stack} from 'react-bootstrap';
 import Navbar from "./Navbar.jsx";
 import { Link } from 'react-router-dom';

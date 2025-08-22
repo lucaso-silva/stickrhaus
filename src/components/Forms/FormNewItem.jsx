@@ -34,7 +34,7 @@ export default function FormNewItem() {
         const data = await res.json();
         if(res.ok){
             alert("new item created ", values.description);
-            navigate('/');
+            navigate('/admin');
         }else{
             alert(data.error);
         }
@@ -48,7 +48,7 @@ export default function FormNewItem() {
                             onSubmit={handleNewItem}
                             initialValues={{description:"", size:"", price:0.01, category:"", stock:1, discount:0}}
                     >
-                        {({handleSubmit, handleChange, values, touched, handleBlur, errors})=>(
+                        {({handleSubmit, handleChange, values, errors})=>(
                             <Form noValidate onSubmit={handleSubmit}>
                                 <Form.Group controlId="description">
                                     <Form.Label>Description</Form.Label>

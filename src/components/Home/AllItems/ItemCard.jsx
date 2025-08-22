@@ -1,5 +1,5 @@
 import { Card } from 'react-bootstrap';
-import { useCartDispatch } from "../contexts/CartContext.jsx";
+import { useCartDispatch } from "../../../contexts/CartContext.jsx";
 
 export default function ItemCard({sticker, card_width}) {
     const dispatch = useCartDispatch();

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Home from './pages/Home.jsx';
-import Sections from './components/Sections.jsx'
+import Sections from './components/Home/Sections.jsx'
 import { mockStickers } from "../tests/data/stickers.js";
 import { vi } from 'vitest';
 import {MemoryRouter } from "react-router-dom";

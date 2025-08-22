@@ -1,6 +1,6 @@
 import ItemEditRow from "./ItemEditRow.jsx";
 import {useEffect, useState} from "react";
-import ItemModal from "././ItemModal.jsx";
+import ItemModal from "../Forms/ItemModal.jsx";
 import {Form, Stack} from 'react-bootstrap';
 
 export default function ListToEdit(){

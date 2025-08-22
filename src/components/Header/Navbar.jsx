@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import {Button, Dropdown, DropdownMenu} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {useCart, useCartDispatch} from "../contexts/CartContext.jsx";
-import {useLoggedUser, useLoggedUserDispatch} from "../contexts/LoggedUserContext.jsx";
+import {useCart, useCartDispatch} from "../../contexts/CartContext.jsx";
+import {useLoggedUser, useLoggedUserDispatch} from "../../contexts/LoggedUserContext.jsx";
 import NavLink from "./NavLink.jsx";
 
 export default function Navbar() {

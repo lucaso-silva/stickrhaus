@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useLoggedUserDispatch } from "../contexts/LoggedUserContext.jsx";
+import { useLoggedUserDispatch } from "../../contexts/LoggedUserContext.jsx";
 import * as formik from "formik";
 import * as yup from "yup";
 

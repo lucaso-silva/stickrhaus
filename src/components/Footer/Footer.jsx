@@ -1,5 +1,5 @@
 import {Container, Row, Col, Stack} from "react-bootstrap";
-import logo from '../img/logo.png'
+import logo from '../../img/logo.png'
 
 export default function Footer(){
     return (

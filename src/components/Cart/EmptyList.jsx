@@ -1,6 +1,6 @@
 import { Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import empty_list from '../img/empty_list.svg';
+import empty_list from '../../img/empty_list.svg';
 
 export default function EmptyCart() {
     const navigate = useNavigate();

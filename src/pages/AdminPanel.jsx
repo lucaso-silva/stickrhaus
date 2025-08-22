@@ -1,9 +1,9 @@
-import Header from '../components/Header.jsx';
-import Footer from '../components/Footer';
-import FormNewItem from '../components/FormNewItem';
+import Header from '../components/Header/Header.jsx';
+import Footer from '../components/Footer/Footer.jsx';
+import FormNewItem from '../components/Forms/FormNewItem.jsx';
 import { Button, Container, Row, Col} from "react-bootstrap";
 import {useEffect, useState} from "react";
-import ListToEdit from '../components/ListToEdit';
+import ListToEdit from '../components/AdminPanel/ListToEdit.jsx';
 import admin_settings from '../img/admin_settings.svg'
 import {Link, useNavigate} from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import empty_cart from '../img/empty_cart.svg';
+import empty_cart from '../../img/empty_cart.svg';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 

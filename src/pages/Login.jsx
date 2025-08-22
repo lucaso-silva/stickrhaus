@@ -1,6 +1,6 @@
-import Header from "../components/Header.jsx";
-import LoginForm from "../components/LoginForm.jsx";
-import Footer from "../components/Footer.jsx";
+import Header from "../components/Header/Header.jsx";
+import LoginForm from "../components/Forms/LoginForm.jsx";
+import Footer from "../components/Footer/Footer.jsx";
 import {Card} from "react-bootstrap";
 import {Link} from "react-router-dom";
 

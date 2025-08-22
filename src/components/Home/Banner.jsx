@@ -1,5 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import bannerText from '../img/Creative-Designs-for-Sticky.png';
+import bannerText from '../../img/Creative-Designs-for-Sticky.png';
 
 export default function Banner(){
     return(

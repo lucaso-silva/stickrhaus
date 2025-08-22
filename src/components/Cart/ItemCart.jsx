@@ -1,6 +1,6 @@
 import {ListGroup, Stack} from 'react-bootstrap';
 import { useState } from "react";
-import {useCartDispatch} from "../contexts/CartContext.jsx";
+import {useCartDispatch} from "../../contexts/CartContext.jsx";
 
 export default function ItemCart({sticker}) {
     const dispatch = useCartDispatch();

@@ -1,5 +1,5 @@
 import { Stack, ListGroup } from 'react-bootstrap';
-import ItemModal from "././ItemModal.jsx";
+import ItemModal from "../Forms/ItemModal.jsx";
 
 export default function ItemEditRow({ sticker, delItem, toShow  }) {
     return(

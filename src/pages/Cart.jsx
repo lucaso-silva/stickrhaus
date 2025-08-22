@@ -1,10 +1,10 @@
-import Header from '../components/Header.jsx'
+import Header from '../components/Header/Header.jsx'
 import {Container, Row, Col, ListGroup} from "react-bootstrap";
-import ItemCart from "../components/ItemCart.jsx";
-import CartSummary from "../components/CartSummary.jsx";
-import Footer from "../components/Footer.jsx"
+import ItemCart from "../components/Cart/ItemCart.jsx";
+import CartSummary from "../components/Cart/CartSummary.jsx";
+import Footer from "../components/Footer/Footer.jsx"
 import { useCart } from "../contexts/CartContext.jsx";
-import EmptyCart from "../components/EmptyCart.jsx";
+import EmptyCart from "../components/Cart/EmptyCart.jsx";
 
 export default function Cart(){
     const cart = useCart();

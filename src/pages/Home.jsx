@@ -1,7 +1,7 @@
-import Header from '../components/Header.jsx'
-import Banner from '../components/Banner.jsx'
-import Sections from "../components/Sections.jsx";
-import Footer from "../components/Footer.jsx"
+import Header from '../components/Header/Header.jsx'
+import Banner from '../components/Home/Banner.jsx'
+import Sections from "../components/Home/Sections.jsx";
+import Footer from "../components/Footer/Footer.jsx"
 
 export default function Home(){
 

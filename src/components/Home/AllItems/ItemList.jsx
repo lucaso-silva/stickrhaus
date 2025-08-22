@@ -1,4 +1,4 @@
-import ItemCard from './ItemCard';
+import ItemCard from './ItemCard.jsx';
 
 export default function ItemList({stickers, card_width}) {
     return(

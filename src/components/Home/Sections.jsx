@@ -1,5 +1,5 @@
-import AllItems from './AllItems.jsx';
-import Offers from './Offers.jsx';
+import AllItems from './AllItems/AllItems.jsx';
+import Offers from './Offers/Offers.jsx';
 import { Container, Col, Row, Form, Pagination, Spinner } from 'react-bootstrap';
 import {useEffect, useState} from "react";
 

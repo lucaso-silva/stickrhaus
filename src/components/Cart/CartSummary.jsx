@@ -1,6 +1,6 @@
 import {Card, Container, Row, Col, Button} from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
-import { useCart } from "../contexts/CartContext.jsx";
+import { useCart } from "../../contexts/CartContext.jsx";
 import {useEffect, useState} from "react";
 
 export default function CartSummary(){

@@ -1,11 +1,11 @@
-import Header from '../components/Header.jsx';
-import Footer from '../components/Footer.jsx';
+import Header from '../components/Header/Header.jsx';
+import Footer from '../components/Footer/Footer.jsx';
 import {Container} from "react-bootstrap";
 import { loadStripe } from "@stripe/stripe-js";
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
 import {useCallback} from "react";
 import { useCart } from "../contexts/CartContext.jsx";
-import EmptyCart from "../components/EmptyCart.jsx";
+import EmptyCart from "../components/Cart/EmptyCart.jsx";
 
 const stripePromise = loadStripe("pk_test_51RgK2N4PJYdvk5e9lYKmrvvOXnHCfDe3aWPBOqJwzV8Ro3uNspAjaEL3I0OyTSqxqVkJsEc2pdTM7DZUHiBlpziB00EtpW0WlS");
 

@@ -1,4 +1,4 @@
-import ItemList from "./ItemList.jsx";
+import ItemList from "../AllItems/ItemList.jsx";
 
 export default function Offers({stickers}) {
     const card_width = "col-5 col-sm-10 col-md-8 col-lg-5";

@@ -1,8 +1,8 @@
 import empty_list from '../img/empty_list.svg';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/Header/Header.jsx';
+import Footer from '../components/Footer/Footer.jsx';
 import under_construction from '../img/under_construction.svg';
 
 export default function Wishlist(){
