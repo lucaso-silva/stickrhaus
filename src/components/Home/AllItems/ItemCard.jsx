@@ -1,8 +1,10 @@
 import { Card } from 'react-bootstrap';
 import { useCartDispatch } from "../../../contexts/CartContext.jsx";
+import {useWishlistDispatch} from "../../../contexts/WishlistContext.jsx";
 
 export default function ItemCard({sticker, card_width}) {
-    const dispatch = useCartDispatch();
+    const cartDispatch = useCartDispatch();
+    const wishlistDispatch = useWishlistDispatch();
 
     return(
         <Card className={`${card_width}`} data-testid="sticker-card">
@@ -18,16 +20,23 @@ export default function ItemCard({sticker, card_width}) {
                         <Card.Text>Price: ${sticker.price}</Card.Text>
                 }
                 <div className="d-flex justify-content-between">
-                        <button className="cardBtn addCart" onClick={()=>{
-                            dispatch({
-                                type:'add',
-                                id:sticker._id,
-                                description:sticker.description,
-                                price:sticker.price,
-                                discountPerCent: sticker.discountPerCent/100,
-                            })
-                        }}><span className="visually-hidden">Add to cart</span><i className="bi bi-bag-plus"></i></button>
-                    <button className="cardBtn addFav"><i className="bi bi-heart"></i></button>
+                    <button className="cardBtn addCart" onClick={()=>{
+                        cartDispatch({
+                            type:'add',
+                            id:sticker._id,
+                            description:sticker.description,
+                            price:sticker.price,
+                            discountPerCent: sticker.discountPerCent/100,
+                        })
+                    }}><span className="visually-hidden">Add to cart</span><i className="bi bi-bag-plus"></i>
+                    </button>
+                    <button className="cardBtn addFav" onClick={()=>{
+                        wishlistDispatch({
+                            type:'add',
+                            favourite: sticker,
+                        })
+                    }}><span className="visually-hidden">Add to wishlist</span><i className="bi bi-heart"></i>
+                    </button>
                 </div>
             </Card.Body>
         </Card>

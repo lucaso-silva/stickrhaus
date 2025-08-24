@@ -74,12 +74,6 @@
     color: red;
 }
 
-/*Checkout Breadcrumbs*/
-.breadcrumb-item+.breadcrumb-item::before {
-    content: var(--bs-breadcrumb-divider, ">");
-}
-
-
 /*Admin Panel*/
 .blank-space{
     height: 60vh;

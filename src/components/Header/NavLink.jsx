@@ -8,7 +8,7 @@ export default function NavLink({ user }) {
                 <Link to='/admin' className="navLink">Admin Panel</Link>
             ) : (
                 <>
-                    {/*<Link to='/wishlist' className="navLink">Wishlist</Link>*/}
+                    <Link to='/wishlist' className="navLink">Wishlist</Link>
                     <Link to='/create-checkout-session' className="navLink">Checkout</Link>
                 </>
             )}
