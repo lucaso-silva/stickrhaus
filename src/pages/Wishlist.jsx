@@ -19,6 +19,7 @@ export default function Wishlist(){
     return(
         <>
             <Header />
+            <h4>My Wishlist</h4>
             <div className="text-center p-5 d-flex flex-column justify-content-center align-items-center gap-4">
                 {/*<h4>Your wishlist is empty</h4>*/}
                 {/*<img src={empty_list} alt="Empty list image" className="pages_img"/>*/}

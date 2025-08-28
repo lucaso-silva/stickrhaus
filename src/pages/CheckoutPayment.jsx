@@ -1,17 +1,19 @@
 import Header from '../components/Header/Header.jsx';
 import Footer from '../components/Footer/Footer.jsx';
-import {Container} from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
 import { loadStripe } from "@stripe/stripe-js";
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
 import {useCallback} from "react";
 import { useCart } from "../contexts/CartContext.jsx";
 import EmptyCart from "../components/Cart/EmptyCart.jsx";
+import { useNavigate } from "react-router-dom";
 
 const stripePromise = loadStripe("pk_test_51RgK2N4PJYdvk5e9lYKmrvvOXnHCfDe3aWPBOqJwzV8Ro3uNspAjaEL3I0OyTSqxqVkJsEc2pdTM7DZUHiBlpziB00EtpW0WlS");
 
 export default function CheckoutPayment() {
     const cart = useCart();
     const api = import.meta.env.VITE_API_URL;
+    const navigate = useNavigate();
 
     const fetchClientSecret = useCallback(()=>{
         return fetch(`${api}/api/checkout/create-checkout-session`,{
@@ -39,6 +41,9 @@ export default function CheckoutPayment() {
                         >
                             <EmbeddedCheckout/>
                         </EmbeddedCheckoutProvider>
+                    </div>
+                    <div className="mt-4 mb-3 text-center">
+                        <Button onClick={() => navigate('/')}>Return Home</Button>
                     </div>
                 </>
             ) : <EmptyCart/>}
