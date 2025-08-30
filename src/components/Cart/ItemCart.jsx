@@ -23,7 +23,6 @@ export default function ItemCart({sticker}) {
                             <p>Price: ${sticker.price}</p>
                         )}
                     </div>
-                    {/*d-flex flex-column justify-content-between align-self-stretch align-items-center*/}
                     <div className="p-1 ms-auto">
                         <div className="d-flex flex-column gap-3 align-items-center">
                             <i className="bi bi-trash3 clickable toDel" onClick={() => {

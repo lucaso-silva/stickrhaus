@@ -32,14 +32,13 @@ function wishlistReducer(wishlist, action){
     switch(action.type){
         case 'add': {
             const found = wishlist.find(item => item._id === action.favourite._id);
-            console.log("sticker added: ", action.favourite);
             if(!found){
                 return [...wishlist, action.favourite];
             }
             return [...wishlist];
         }
         case 'remove': {
-            return wishlist.filter(item => item.id !== action.favourite.id);
+            return wishlist.filter(item => item._id !== action.favourite._id);
         }
         default: {
             throw Error('Unknown action: ' + action.type);
