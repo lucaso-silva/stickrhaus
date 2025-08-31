@@ -1,10 +1,14 @@
 import { Card } from 'react-bootstrap';
 import { useCartDispatch } from "../../../contexts/CartContext.jsx";
 import {useWishlistDispatch} from "../../../contexts/WishlistContext.jsx";
+import {useLoggedUser} from "../../../contexts/LoggedUserContext.jsx";
+import {useNavigate} from "react-router-dom";
 
 export default function ItemCard({sticker, card_width}) {
     const cartDispatch = useCartDispatch();
     const wishlistDispatch = useWishlistDispatch();
+    const user = useLoggedUser();
+    const navigate = useNavigate();
 
     return(
         <Card className={`${card_width}`} data-testid="sticker-card">
@@ -31,10 +35,14 @@ export default function ItemCard({sticker, card_width}) {
                     }}><span className="visually-hidden">Add to cart</span><i className="bi bi-bag-plus"></i>
                     </button>
                     <button className="cardBtn addFav" onClick={()=>{
-                        wishlistDispatch({
-                            type:'add',
-                            favourite: sticker,
-                        })
+                        if(!user) {
+                            navigate("/login");
+                        }else {
+                            wishlistDispatch({
+                                type: 'add',
+                                favourite: sticker,
+                            });
+                        }
                     }}><span className="visually-hidden">Add to wishlist</span><i className="bi bi-heart"></i>
                     </button>
                 </div>

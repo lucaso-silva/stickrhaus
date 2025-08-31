@@ -1,5 +1,5 @@
 import empty_list from '../img/empty_list.svg';
-import {Button, ListGroup} from 'react-bootstrap';
+import {Button, Container, Row, Col, ListGroup} from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import Header from '../components/Header/Header.jsx';
 import Footer from '../components/Footer/Footer.jsx';
@@ -20,23 +20,35 @@ export default function Wishlist(){
     return(
         <>
             <Header />
-            <h4>My Wishlist</h4>
-            <div className="text-center p-5 d-flex flex-column justify-content-center align-items-center gap-4">
-
-                { wishlist.length === 0 ?
-                    <>
-                        <h5>Your wishlist is empty</h5>
-                        <img src={empty_list} alt="Empty list image" className="pages_img"/>
-                        <p>You haven't haven't added any item yet</p>
-                    </> :
-                    <ListGroup>
-                        { wishlist.map(item => <FavList sticker={item} />)
+            <Container>
+                <Row>
+                    <Col className="text-center">
+                        <h4>My Wishlist</h4>
+                    </Col>
+                </Row>
+                <Row className="my-4 justify-content-center">
+                    <Col className="text-center" md={9}>
+                        {wishlist.length === 0 ?
+                            <>
+                                <h5>Your wishlist is empty</h5>
+                                <img src={empty_list} alt="Empty list image" className="pages_img"/>
+                                <h6>You haven't added any item yet</h6>
+                            </> :
+                            <ListGroup>
+                                {
+                                    wishlist.map(item => <FavList sticker={item}/>)
+                                }
+                            </ListGroup>
                         }
-                    </ListGroup>
-                }
+                    </Col>
+                </Row>
+                <Row className="mb-4">
+                    <Col className="text-center">
+                        <Button onClick={() => navigate('/')}>Return</Button>
+                    </Col>
+                </Row>
+            </Container>
 
-            <Button onClick={()=>navigate('/')}>Return</Button>
-            </div>
             <Footer/>
         </>
     );

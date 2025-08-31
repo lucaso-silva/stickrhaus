@@ -12,7 +12,7 @@ export default function FavList({ sticker }){
                 <div>
                     <img src="https://placehold.co/75x75" alt="item"/>
                 </div>
-                <div>
+                <div className="text-start">
                     <h5>{sticker.description}</h5>
                     {sticker.discountPerCent > 0 ? (
                         <p>Price: $<span
@@ -30,7 +30,7 @@ export default function FavList({ sticker }){
                                 favourite: sticker,
                             })
                         }}><span className="visually-hidden">Remove from wishlist</span><i
-                            className="bi bi-trash3 clickable toDel"></i>
+                            className="bi bi-heartbreak clickable toDel"></i>
                         </button>
                         <button className="cardBtn addCart" onClick={() => {
                             cartDispatch({
