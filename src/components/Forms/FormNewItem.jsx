@@ -26,14 +26,31 @@ export default function FormNewItem() {
     })
 
     const handleNewItem = async (values) => {
+        // const res = await fetch(`${api}/api/stickers`, {
+        //     method: 'POST',
+        //     headers: { 'Content-type': 'application/json' },
+        //     body: JSON.stringify({ description: values.description, size: values.size, price: values.price, category: values.category, stock: values.stock, discountPerCent: values.discount })
+        // })
+        const formData = new FormData();
+
+        formData.append("description", values.description);
+        formData.append("size", values.size);
+        formData.append("category", values.category);
+        formData.append("price", values.price);
+        formData.append("stock", values.stock);
+        formData.append("discountPerCent", values.discount);
+        formData.append("image", values.image);
+
         const res = await fetch(`${api}/api/stickers`, {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ description: values.description, size: values.size, price: values.price, category: values.category, stock: values.stock, discountPerCent: values.discount })
-        })
+            body: formData,
+            credentials: 'include',
+        });
+
         const data = await res.json();
+
         if(res.ok){
-            alert("new item created ", values.description);
+            alert("New item created!");
             navigate('/admin');
         }else{
             alert(data.error);
@@ -48,7 +65,7 @@ export default function FormNewItem() {
                             onSubmit={handleNewItem}
                             initialValues={{description:"", size:"", price:0.01, category:"", stock:1, discount:0}}
                     >
-                        {({handleSubmit, handleChange, values, errors})=>(
+                        {({handleSubmit, handleChange, values, errors, setFieldValue})=>(
                             <Form noValidate onSubmit={handleSubmit}>
                                 <Form.Group controlId="description">
                                     <Form.Label>Description</Form.Label>
@@ -112,6 +129,18 @@ export default function FormNewItem() {
                                                       type="number"
                                                       value={values.discount}
                                                       onChange={handleChange}
+                                                      isInvalid={!!errors.discount}
+                                        />
+                                        <Form.Control.Feedback type="invalid">{errors.discount}</Form.Control.Feedback>
+                                    </Form.Group>
+                                    <Form.Group className="col-sm-5 col-lg-3" controlId="image">
+                                        <Form.Label>Sticker Image</Form.Label>
+                                        <Form.Control name="image"
+                                                      type="file"
+                                                      accept="image/*"
+                                                      onChange={(e)=>{
+                                                          setFieldValue('image', e.currentTarget.files[0]);
+                                                      }}
                                                       isInvalid={!!errors.discount}
                                         />
                                         <Form.Control.Feedback type="invalid">{errors.discount}</Form.Control.Feedback>

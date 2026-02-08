@@ -12,7 +12,7 @@ export default function ItemCard({sticker, card_width}) {
 
     return(
         <Card className={`${card_width}`} data-testid="sticker-card">
-            <Card.Img variant="top" src="https://placehold.co/75x50" />
+            <Card.Img variant="top" src={sticker.imageUrl} />
             <Card.Body>
                 <Card.Title> {sticker.description}</Card.Title>
                 <Card.Text>Size: {sticker.size}</Card.Text>
